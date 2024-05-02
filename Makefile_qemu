@@ -15,4 +15,4 @@ qemu.bin: main.qemu canbox.qemu ring.qemu conf.qemu car.qemu tick.qemu hw.qemu s
 
 run_qemu: qemu.bin
 	reset
-	/opt/qemu-stm32/bin/qemu-system-arm -M stm32vldiscovery -kernel qemu.bin -serial stdio -display none
+	/usr/bin/qemu-system-arm -M stm32vldiscovery -kernel qemu.bin -serial stdio -display none

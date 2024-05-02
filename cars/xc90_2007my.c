@@ -1,6 +1,7 @@
 //mscan 2510020
 //hscan 1a2402a
-static void xc90_2007my_ms_wheel_handler(const uint8_t * msg, struct msg_desc_t * desc)
+
+static void xc90_2007my_ms_wheel_handler(const uint8_t * msg, struct msg_desc_t * desc)  // working but reversed
 {
 	if (is_timeout(desc)) {
 
@@ -116,16 +117,41 @@ static void xc90_2007my_ms_rem_handler(const uint8_t * msg, struct msg_desc_t * 
 static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * desc)
 {
 	if (is_timeout(desc)) {
-
 		key_state.key_volume = STATE_UNDEF;
 		key_state.key_mode = STATE_UNDEF;
 		key_state.key_prev = STATE_UNDEF;
 		key_state.key_next = STATE_UNDEF;
-
+		key_state.key_enter = STATE_UNDEF;
+		key_state.key_exit = STATE_UNDEF;
+		key_state.key_cruise = STATE_UNDEF;
 		return;
 	}
 
-#if 0
+
+	//cruise
+	uint8_t key_cruise = msg[5] & 0x01;
+	//1->0 short release
+	if ((key_state.key_cruise == 0) && (key_cruise == 1) && key_state.key_cb && key_state.key_cb->cruise)
+		key_state.key_cb->cruise();
+	key_state.key_cruise = key_cruise;
+
+	//Enter
+	uint8_t key_enter = (msg[7] >> 3) & 0x01;
+
+
+	//1->0 short release
+	if ((key_state.key_enter== 1) && (key_enter == 0) && key_state.key_cb && key_state.key_cb->enter)
+		key_state.key_cb->enter();
+	
+	key_state.key_enter = key_enter;
+
+	//Exit
+	uint8_t key_exit = (msg[7] >> 4) & 0x01;
+	//1->0 short release
+	if ((key_state.key_exit == 1) && (key_exit == 0) && key_state.key_cb && key_state.key_cb->exit)
+		key_state.key_cb->exit();
+	key_state.key_exit = key_exit;
+
 	//up
 	if (!(msg[7] & 0x08)) {
 
@@ -144,7 +170,6 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	}
 	else
 		key_state.key_volume = STATE_UNDEF;
-#endif
 
 	//PREV
 	uint8_t key_prev = msg[7] & 0x01;
@@ -182,6 +207,21 @@ static void xc90_2007my_ms_acc_handler(const uint8_t * msg, struct msg_desc_t * 
 		carstate.ign = 0;
 }
 
+static void xc90_2007my_ms_temp_handler(const uint8_t * msg, struct msg_desc_t * desc){
+    // transformation function dec(X) * 0.75 -48
+	if (is_timeout(desc)) {
+		carstate.temp = 0;
+		return;
+	}
+	
+	carstate.temp = (int16_t)((int8_t) msg[6] * 0.75) - 48;
+
+}
+
+
+
+
+
 struct msg_desc_t xc90_2007my_ms[] =
 {
 	{ 0x0217ffc, 20, 0, 0, xc90_2007my_ms_lsm0_handler },
@@ -191,5 +231,15 @@ struct msg_desc_t xc90_2007my_ms[] =
 	{ 0x2803008, 60, 0, 0, xc90_2007my_ms_lsm1_handler },
 	{ 0x3200428, 90, 0, 0, xc90_2007my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2007my_ms_acc_handler },
+	// other codes
+	{ 0x617ff8, 20, 0, 0, xc90_2007my_ms_lsm0_handler },
+	{ 0x404066, 25, 0, 0, xc90_2007my_ms_swm_handler },
+	{ 0x1e0522e, 45, 0, 0, xc90_2007my_ms_rem_handler },
+	{ 0x2510000, 80, 0, 0, xc90_2007my_ms_wheel_handler },
+	//{ 0x2803008, 60, 0, 0, xc90_2007my_ms_lsm1_handler }, // brightness 'not found'
+	{ 0x3200408, 90, 0, 0, xc90_2007my_ms_gear_handler },
+	{ 0x00e00442, 1000, 0, 0, xc90_2007my_ms_temp_handler },
+	//{ 0x2006428, 120, 0, 0, xc90_2007my_ms_acc_handler }, // acc state 'not found'
+
 };
 

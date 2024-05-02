@@ -61,6 +61,10 @@ typedef struct key_cb_t
 	void (*navi)(void);
 	void (*cont)(void);
 	void (*mici)(void);
+	void (*cruise)(void);
+	void (*enter)(void);
+	void (*exit)(void);
+
 } key_cb_t;
 
 void car_init(enum e_car_t car, struct key_cb_t * cb);

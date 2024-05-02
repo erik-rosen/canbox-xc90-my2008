@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "limits": "c",
+        "inttypes.h": "c",
+        "hw.h": "c",
+        "hw_usart.h": "c",
+        "canbox.h": "c",
+        "conf.h": "c"
+    }
+}

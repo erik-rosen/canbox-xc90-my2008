@@ -54,6 +54,9 @@ struct key_cb_t key_cb =
 	.cont = canbox_cont,
 	.navi = canbox_mode,
 	.mici = canbox_mici,
+	.enter = canbox_enter,
+	.exit = canbox_exit,
+	.cruise = canbox_cruise
 };
 
 uint8_t debug_on = 0;
@@ -266,6 +269,7 @@ void print_debug(void)
 	uint8_t park_lights = car_get_park_lights();
 	uint8_t near_lights = car_get_near_lights();
 	uint8_t ill = car_get_illum();
+	int16_t temp = car_get_temp();
 
 	clr_rscreen();
 
@@ -392,6 +396,10 @@ void print_debug(void)
 		radar.rl, radar.rlm, radar.rrm, radar.rr);
 	hw_usart_write(hw_usart_get(), (uint8_t *)buf, strlen(buf));
 
+	snprintf(buf, sizeof(buf), "Temp:%d \r\n", temp);
+	hw_usart_write(hw_usart_get(), (uint8_t *)buf, strlen(buf));
+
+
 	//uint32_t rx_ovr = hw_usart_get_rx_overflow(hw_usart_get());
 	//uint32_t tx_ovr = hw_usart_get_tx_overflow(hw_usart_get());
 	//uint32_t rx_cnt = hw_usart_get_rx(hw_usart_get());
@@ -431,8 +439,9 @@ void print_debug(void)
 static void gpio_process(void)
 {
 	uint8_t acc = car_get_acc();
-//	uint8_t ign = car_get_ign();
-//	uint8_t park_lights = car_get_park_lights();
+	//uint8_t ign = car_get_ign();
+	//uint8_t park_lights = car_get_park_lights();
+	uint8_t near_lights = car_get_near_lights();
 	uint8_t ill = car_get_illum();
 
 	if (acc)
@@ -440,7 +449,7 @@ static void gpio_process(void)
 	else
 		hw_gpio_acc_off();
 
-	if (ill > conf_get_illum())
+	if (ill > conf_get_illum() || near_lights)
 		hw_gpio_ill_on();
 	else
 		hw_gpio_ill_off();
