@@ -124,9 +124,18 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 		key_state.key_enter = STATE_UNDEF;
 		key_state.key_exit = STATE_UNDEF;
 		key_state.key_cruise = STATE_UNDEF;
+		key_state.key_nav_enter = STATE_UNDEF;
+		key_state.key_nav_back = STATE_UNDEF;
+		key_state.key_nav_up = STATE_UNDEF;
+		key_state.key_nav_down = STATE_UNDEF;
+		key_state.key_nav_left = STATE_UNDEF;
+		key_state.key_nav_right = STATE_UNDEF;
+	
 		return;
 	}
 
+
+    #if 0
 
 	//cruise
 	uint8_t key_cruise = msg[5] & 0x01;
@@ -135,10 +144,10 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 		key_state.key_cb->cruise();
 	key_state.key_cruise = key_cruise;
 
+	#endif 
+
 	//Enter
 	uint8_t key_enter = (msg[7] >> 3) & 0x01;
-
-
 	//1->0 short release
 	if ((key_state.key_enter== 1) && (key_enter == 0) && key_state.key_cb && key_state.key_cb->enter)
 		key_state.key_cb->enter();
@@ -184,6 +193,51 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	if ((key_state.key_next == 1) && (key_next == 0) && key_state.key_cb && key_state.key_cb->next)
 		key_state.key_cb->next();
 	key_state.key_next = key_next;
+
+	// RTI GPS Nav
+
+	//NAV_ENTER
+	uint8_t key_nav_enter = (msg[6] >> 5) & 0x01;
+	//1->0 short release
+	if ((key_state.key_nav_enter == 0) && (key_nav_enter == 1) && key_state.key_cb && key_state.key_cb->nav_enter)
+		key_state.key_cb->nav_enter();
+	key_state.key_nav_enter = key_nav_enter;
+
+	//NAV_BACK
+	uint8_t key_nav_back = (msg[6] >> 4)& 0x01;
+	//1->0 short release
+	if ((key_state.key_nav_back == 0) && (key_nav_back == 1) && key_state.key_cb && key_state.key_cb->nav_back)
+		key_state.key_cb->nav_back();
+	key_state.key_nav_back = key_nav_back;
+
+	//NAV_UP
+	uint8_t key_nav_up = (msg[6] >> 3)& 0x01;
+	//1->0 short release
+	if ((key_state.key_nav_up == 0) && (key_nav_up == 1) && key_state.key_cb && key_state.key_cb->nav_up)
+		key_state.key_cb->nav_up();
+	key_state.key_nav_up = key_nav_up;
+
+	//NAV_DOWN
+	uint8_t key_nav_down = (msg[6] >> 2)& 0x01;
+	//1->0 short release
+	if ((key_state.key_nav_down == 0) && (key_nav_down == 1) && key_state.key_cb && key_state.key_cb->nav_down)
+		key_state.key_cb->nav_down();
+	key_state.key_nav_down = key_nav_down;
+	
+	//NAV_LEFT
+	uint8_t key_nav_left = msg[6] & 0x01;
+	//1->0 short release
+	if ((key_state.key_nav_left == 0) && (key_nav_left == 1) && key_state.key_cb && key_state.key_cb->nav_left)
+		key_state.key_cb->nav_left();
+	key_state.key_nav_left = key_nav_left;
+
+	//NAV_RIGHT
+	uint8_t key_nav_right = (msg[6] >> 1)& 0x01;
+	//1->0 short release
+	if ((key_state.key_nav_right == 0) && (key_nav_right == 1) && key_state.key_cb && key_state.key_cb->nav_right)
+		key_state.key_cb->nav_right();
+	key_state.key_nav_right = key_nav_right;
+
 }
 
 static void xc90_2007my_ms_acc_handler(const uint8_t * msg, struct msg_desc_t * desc)

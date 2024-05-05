@@ -56,7 +56,13 @@ struct key_cb_t key_cb =
 	.mici = canbox_mici,
 	.enter = canbox_enter,
 	.exit = canbox_exit,
-	.cruise = canbox_cruise
+	.cruise = canbox_cruise,
+	.nav_enter = canbox_nav_enter,
+	.nav_back = canbox_nav_back,
+	.nav_up = canbox_nav_up,
+	.nav_down = canbox_nav_down,
+	.nav_left  = canbox_nav_left,
+	.nav_right = canbox_nav_right
 };
 
 uint8_t debug_on = 0;

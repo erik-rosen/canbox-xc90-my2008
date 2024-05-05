@@ -21,6 +21,14 @@ void canbox_enter(void);
 void canbox_exit(void);
 void canbox_cruise(void);
 
+void canbox_nav_enter(void);
+void canbox_nav_back(void);
+void canbox_nav_up(void);
+void canbox_nav_down(void);
+void canbox_nav_left(void);
+void canbox_nav_right(void);
+
+
 void canbox_cmd_process(uint8_t ch);
 void canbox_park_process(void);
 

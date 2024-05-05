@@ -525,10 +525,10 @@ void canbox_enter(void)
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
 		uint8_t buf[] = { 0x11, 0x01 };
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+		snd_canbox_msg(0x2f, buf, sizeof(buf));
 
 		buf[1] = 0x00;
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+		snd_canbox_msg(0x2f, buf, sizeof(buf));
 	}
 }
 
@@ -537,20 +537,42 @@ void canbox_exit(void)
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
 		uint8_t buf[] = { 0x12, 0x01 };
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+		snd_canbox_msg(0x2f, buf, sizeof(buf));
 
 		buf[1] = 0x00;
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+		snd_canbox_msg(0x2f, buf, sizeof(buf));
 	}
 }
 
-
-// test other buttons
 
 void canbox_cruise(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
+		//uint8_t buf[] = { 0x06, 0x01 };
+		//snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		//buf[1] = 0x00;
+		//snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+}
+
+
+void canbox_nav_enter(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		uint8_t buf[] = { 0x08, 0x01 };
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+
+}
+
+void canbox_nav_back(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 		uint8_t buf[] = { 0x06, 0x01 };
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
@@ -559,7 +581,50 @@ void canbox_cruise(void)
 	}
 }
 
+void canbox_nav_up(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		// uint8_t buf[] = { 0x06, 0x01 };
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
 
+		// buf[1] = 0x00;
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+}
+
+void canbox_nav_down(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		// uint8_t buf[] = { 0x06, 0x01 };
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		// buf[1] = 0x00;
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+}
+
+void canbox_nav_left(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		// uint8_t buf[] = { 0x06, 0x01 };
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		// buf[1] = 0x00;
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+}
+
+
+void canbox_nav_right(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		// uint8_t buf[] = { 0x06, 0x01 };
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		// buf[1] = 0x00;
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+}
 
 enum rx_state
 {

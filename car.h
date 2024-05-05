@@ -64,6 +64,12 @@ typedef struct key_cb_t
 	void (*cruise)(void);
 	void (*enter)(void);
 	void (*exit)(void);
+	void (*nav_enter)(void);
+	void (*nav_back)(void);
+	void (*nav_up)(void);
+	void (*nav_down)(void);
+	void (*nav_left)(void);
+	void (*nav_right)(void);
 
 } key_cb_t;
 
