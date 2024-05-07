@@ -422,7 +422,7 @@ void canbox_inc_volume(uint8_t val)
 
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
-		uint8_t buf[] = { 0x01, 0x01 };
+		uint8_t buf[] = { 0x01, 0x01 };  
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -436,7 +436,7 @@ void canbox_dec_volume(uint8_t val)
 
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
-		uint8_t buf[] = { 0x02, 0x01 };
+		uint8_t buf[] = { 0x02, 0x01 }; //transformed to 13 in HU
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -524,11 +524,11 @@ void canbox_enter(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
-		uint8_t buf[] = { 0x11, 0x01 };
-		snd_canbox_msg(0x2f, buf, sizeof(buf));
+		uint8_t buf[] = { 0x09, 0x01 };
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
-		snd_canbox_msg(0x2f, buf, sizeof(buf));
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 
@@ -536,11 +536,11 @@ void canbox_exit(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
-		uint8_t buf[] = { 0x12, 0x01 };
-		snd_canbox_msg(0x2f, buf, sizeof(buf));
+		uint8_t buf[] = { 0x0a, 0x01 };
+		snd_canbox_msg(0x2a, buf, sizeof(buf));
 
 		buf[1] = 0x00;
-		snd_canbox_msg(0x2f, buf, sizeof(buf));
+		snd_canbox_msg(0x2a, buf, sizeof(buf));
 	}
 }
 
@@ -584,22 +584,22 @@ void canbox_nav_back(void)
 void canbox_nav_up(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		// uint8_t buf[] = { 0x06, 0x01 };
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		uint8_t buf[] = { 0x0C, 0x01 };
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 
-		// buf[1] = 0x00;
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 
 void canbox_nav_down(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		// uint8_t buf[] = { 0x06, 0x01 };
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		uint8_t buf[] = { 0x16, 0x01 };
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 
-		// buf[1] = 0x00;
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 

@@ -455,7 +455,8 @@ static void gpio_process(void)
 	else
 		hw_gpio_acc_off();
 
-	if (ill > conf_get_illum() || near_lights)
+
+	if (ill > conf_get_illum())
 		hw_gpio_ill_on();
 	else
 		hw_gpio_ill_off();
