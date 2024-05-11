@@ -121,9 +121,8 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 		key_state.key_mode = STATE_UNDEF;
 		key_state.key_prev = STATE_UNDEF;
 		key_state.key_next = STATE_UNDEF;
-		key_state.key_enter = STATE_UNDEF;
-		key_state.key_exit = STATE_UNDEF;
-		key_state.key_cruise = STATE_UNDEF;
+		key_state.key_pickup = STATE_UNDEF;
+		key_state.key_hangup = STATE_UNDEF;
 		key_state.key_nav_enter = STATE_UNDEF;
 		key_state.key_nav_back = STATE_UNDEF;
 		key_state.key_nav_up = STATE_UNDEF;
@@ -133,33 +132,6 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	
 		return;
 	}
-
-
-    #if 0
-
-	//cruise
-	uint8_t key_cruise = msg[5] & 0x01;
-	//1->0 short release
-	if ((key_state.key_cruise == 0) && (key_cruise == 1) && key_state.key_cb && key_state.key_cb->cruise)
-		key_state.key_cb->cruise();
-	key_state.key_cruise = key_cruise;
-
-	#endif 
-
-	//Enter
-	uint8_t key_enter = (msg[7] >> 3) & 0x01;
-	//1->0 short release
-	if ((key_state.key_enter== 1) && (key_enter == 0) && key_state.key_cb && key_state.key_cb->enter)
-		key_state.key_cb->enter();
-	
-	key_state.key_enter = key_enter;
-
-	//Exit
-	uint8_t key_exit = (msg[7] >> 4) & 0x01;
-	//1->0 short release
-	if ((key_state.key_exit == 1) && (key_exit == 0) && key_state.key_cb && key_state.key_cb->exit)
-		key_state.key_cb->exit();
-	key_state.key_exit = key_exit;
 
 	//up
 	if (!(msg[7] & 0x08)) {
@@ -193,6 +165,24 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	if ((key_state.key_next == 1) && (key_next == 0) && key_state.key_cb && key_state.key_cb->next)
 		key_state.key_cb->next();
 	key_state.key_next = key_next;
+
+	//PICKUP
+	uint8_t key_pickup = (msg[7] >> 3) & 0x01;
+	//1->0 short release
+	if ((key_state.key_pickup== 1) && (key_pickup == 0) && key_state.key_cb && key_state.key_cb->pickup)
+		key_state.key_cb->pickup();
+	
+	key_state.key_pickup = key_pickup;
+
+	//HANGUP
+	uint8_t key_hangup = (msg[7] >> 4) & 0x01;
+	//1->0 short release
+	if ((key_state.key_hangup == 1) && (key_hangup == 0) && key_state.key_cb && key_state.key_cb->hangup)
+		key_state.key_cb->hangup();
+	key_state.key_hangup = key_hangup;
+
+
+
 
 	// RTI GPS Nav
 

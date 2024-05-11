@@ -488,7 +488,7 @@ void canbox_mode(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
-		uint8_t buf[] = { 0x0a, 0x01 };
+		uint8_t buf[] = { 0x0a, 0x01 };   // HANGUP
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -500,7 +500,7 @@ void canbox_cont(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
 
-		uint8_t buf[] = { 0x09, 0x01 };
+		uint8_t buf[] = { 0x09, 0x01 }; // PICKUP
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -520,48 +520,23 @@ void canbox_mici(void)
 	}
 }
 
-void canbox_enter(void)
+void canbox_pickup(void)
 {
-	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-
-		uint8_t buf[] = { 0x09, 0x01 };
-		snd_canbox_msg(0x20, buf, sizeof(buf));
-
-		buf[1] = 0x00;
-		snd_canbox_msg(0x20, buf, sizeof(buf));
-	}
+	canbox_nav_enter();
+	//canbox_cont(); // -> this must be hangup, with bluetooth connected
 }
 
-void canbox_exit(void)
+void canbox_hangup(void)
 {
-	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-
-		uint8_t buf[] = { 0x0a, 0x01 };
-		snd_canbox_msg(0x2a, buf, sizeof(buf));
-
-		buf[1] = 0x00;
-		snd_canbox_msg(0x2a, buf, sizeof(buf));
-	}
-}
-
-
-void canbox_cruise(void)
-{
-	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-
-		//uint8_t buf[] = { 0x06, 0x01 };
-		//snd_canbox_msg(0x20, buf, sizeof(buf));
-
-		//buf[1] = 0x00;
-		//snd_canbox_msg(0x20, buf, sizeof(buf));
-	}
+	canbox_nav_back();
+	//canbox_mode(); // -> this must be hangup , with bluetooth connected
 }
 
 
 void canbox_nav_enter(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x08, 0x01 };
+		uint8_t buf[] = { 0x08, 0x01 }; // SPEECH
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -573,7 +548,7 @@ void canbox_nav_enter(void)
 void canbox_nav_back(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x06, 0x01 };
+		uint8_t buf[] = { 0x06, 0x01 }; // MUTE
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;

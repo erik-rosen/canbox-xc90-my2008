@@ -146,9 +146,8 @@ typedef struct key_state_t
 	uint8_t key_cont;
 	uint8_t key_navi;
 	uint8_t key_mici;
-	uint8_t key_cruise;
-	uint8_t key_enter;
-	uint8_t key_exit;
+	uint8_t key_pickup;
+	uint8_t key_hangup;
 	uint8_t key_nav_enter;
 	uint8_t key_nav_back;
 	uint8_t key_nav_up;
@@ -169,9 +168,8 @@ static struct key_state_t key_state =
 	.key_cont = STATE_UNDEF,
 	.key_navi = STATE_UNDEF,
 	.key_mici = STATE_UNDEF,
-	.key_cruise = STATE_UNDEF,
-	.key_enter = STATE_UNDEF,
-	.key_exit = STATE_UNDEF,
+	.key_pickup = STATE_UNDEF,
+	.key_hangup = STATE_UNDEF,
 	.key_nav_enter = STATE_UNDEF,
 	.key_nav_back = STATE_UNDEF,
 	.key_nav_up = STATE_UNDEF,

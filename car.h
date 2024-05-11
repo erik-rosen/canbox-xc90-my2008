@@ -61,9 +61,8 @@ typedef struct key_cb_t
 	void (*navi)(void);
 	void (*cont)(void);
 	void (*mici)(void);
-	void (*cruise)(void);
-	void (*enter)(void);
-	void (*exit)(void);
+	void (*pickup)(void);
+	void (*hangup)(void);
 	void (*nav_enter)(void);
 	void (*nav_back)(void);
 	void (*nav_up)(void);

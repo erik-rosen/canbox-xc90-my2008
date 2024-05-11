@@ -17,10 +17,8 @@ void canbox_next(void);
 void canbox_mode(void);
 void canbox_cont(void);
 void canbox_mici(void);
-void canbox_enter(void);
-void canbox_exit(void);
-void canbox_cruise(void);
-
+void canbox_pickup(void);
+void canbox_hangup(void);
 void canbox_nav_enter(void);
 void canbox_nav_back(void);
 void canbox_nav_up(void);
