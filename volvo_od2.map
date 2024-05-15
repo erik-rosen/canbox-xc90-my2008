@@ -724,7 +724,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nof
 LOAD /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a
 END GROUP
 
-.text           0x0000000008000000     0xce5c
+.text           0x0000000008000000     0xce9c
  *(.vectors)
  .vectors       0x0000000008000000      0x150 libopencm3/lib/cm3/vector.stm32f1
                 0x0000000008000000                vector_table
@@ -893,1017 +893,1017 @@ END GROUP
  .text.lr2_2013my_ms_10_handler
                 0x0000000008001f70       0x48 car.vo
  .text.xc90_2007my_ms_ccm_handler
-                0x0000000008001fb8       0x38 car.vo
+                0x0000000008001fb8       0x78 car.vo
  .text.xc90_2007my_ms_acc_handler
-                0x0000000008001ff0       0x2c car.vo
+                0x0000000008002030       0x2c car.vo
  .text.xc90_2007my_ms_gear_handler
-                0x000000000800201c       0x38 car.vo
+                0x000000000800205c       0x38 car.vo
  .text.xc90_2007my_ms_lsm1_handler
-                0x0000000008002054       0x44 car.vo
+                0x0000000008002094       0x44 car.vo
  .text.xc90_2007my_ms_wheel_handler
-                0x0000000008002098       0x54 car.vo
+                0x00000000080020d8       0x54 car.vo
  .text.xc90_2007my_ms_swm_handler
-                0x00000000080020ec      0x174 car.vo
+                0x000000000800212c      0x174 car.vo
  .text.xc90_2007my_ms_lsm0_handler
-                0x0000000008002260       0x30 car.vo
+                0x00000000080022a0       0x30 car.vo
  .text.skoda_fabia_ms_taho_handler
-                0x0000000008002290       0x20 car.vo
+                0x00000000080022d0       0x20 car.vo
  .text.skoda_fabia_ms_aircon_handler
-                0x00000000080022b0       0x20 car.vo
+                0x00000000080022f0       0x20 car.vo
  .text.skoda_fabia_ms_acc_handler
-                0x00000000080022d0       0x34 car.vo
+                0x0000000008002310       0x34 car.vo
  .text.skoda_fabia_ms_gear_handler
-                0x0000000008002304       0x38 car.vo
+                0x0000000008002344       0x38 car.vo
  .text.skoda_fabia_ms_park_handler
-                0x000000000800233c       0x24 car.vo
+                0x000000000800237c       0x24 car.vo
  .text.skoda_fabia_ms_wheel_handler
-                0x0000000008002360       0x20 car.vo
+                0x00000000080023a0       0x20 car.vo
  .text.skoda_fabia_ms_swm_handler
-                0x0000000008002380       0x5c car.vo
+                0x00000000080023c0       0x5c car.vo
  .text.skoda_fabia_ms_illum_handler
-                0x00000000080023dc       0x28 car.vo
+                0x000000000800241c       0x28 car.vo
  .text.toyota_premio_26x_ms_temp_handler
-                0x0000000008002404       0x20 car.vo
+                0x0000000008002444       0x20 car.vo
  .text.toyota_premio_26x_ms_tacho_handler
-                0x0000000008002424       0x28 car.vo
+                0x0000000008002464       0x28 car.vo
  .text.toyota_premio_26x_ms_odometer
-                0x000000000800244c       0x28 car.vo
+                0x000000000800248c       0x28 car.vo
  .text.toyota_premio_26x_ms_drive_mode_handler
-                0x0000000008002474       0x4c car.vo
+                0x00000000080024b4       0x4c car.vo
  .text.toyota_premio_26x_ms_light_handler
-                0x00000000080024c0       0x44 car.vo
+                0x0000000008002500       0x44 car.vo
  .text.toyota_premio_26x_ms_ign_brake_doors_handler
-                0x0000000008002504       0x84 car.vo
+                0x0000000008002544       0x84 car.vo
  .text.toyota_premio_26x_ms_speed_handler
-                0x0000000008002588       0x2c car.vo
+                0x00000000080025c8       0x2c car.vo
  .text.toyota_premio_26x_ms_wheel_handler
-                0x00000000080025b4       0x68 car.vo
+                0x00000000080025f4       0x68 car.vo
  .text.q3_2015_ms_3E3_handler
-                0x000000000800261c       0x4c car.vo
+                0x000000000800265c       0x4c car.vo
  .text.q3_2015_ms_3E1_handler
-                0x0000000008002668       0x34 car.vo
+                0x00000000080026a8       0x34 car.vo
  .text.q3_2015_ms_6DA_handler
-                0x000000000800269c      0x1bc car.vo
+                0x00000000080026dc      0x1bc car.vo
  .text.q3_2015_ms_621_handler
-                0x0000000008002858       0x54 car.vo
+                0x0000000008002898       0x54 car.vo
  .text.q3_2015_ms_35b_handler
-                0x00000000080028ac       0x50 car.vo
+                0x00000000080028ec       0x50 car.vo
  .text.q3_2015_ms_3c3_handler
-                0x00000000080028fc       0x50 car.vo
+                0x000000000800293c       0x50 car.vo
  .text.q3_2015_ms_635_handler
-                0x000000000800294c       0x44 car.vo
+                0x000000000800298c       0x44 car.vo
  .text.q3_2015_ms_5BF_handler
-                0x0000000008002990      0x124 car.vo
+                0x00000000080029d0      0x124 car.vo
  .text.q3_2015_ms_359_handler
-                0x0000000008002ab4       0x64 car.vo
+                0x0000000008002af4       0x64 car.vo
  .text.q3_2015_ms_470_handler
-                0x0000000008002b18       0x60 car.vo
+                0x0000000008002b58       0x60 car.vo
  .text.q3_2015_ms_571_handler
-                0x0000000008002b78       0x48 car.vo
+                0x0000000008002bb8       0x48 car.vo
  .text.q3_2015_ms_65D_handler
-                0x0000000008002bc0       0x2c car.vo
+                0x0000000008002c00       0x2c car.vo
  .text.q3_2015_ms_65F_handler
-                0x0000000008002bec       0x64 car.vo
+                0x0000000008002c2c       0x64 car.vo
  .text.q3_2015_ms_2c3_handler
-                0x0000000008002c50       0x2c car.vo
+                0x0000000008002c90       0x2c car.vo
  .text.lr2_2007my_ms_405_handler
-                0x0000000008002c7c       0x68 car.vo
+                0x0000000008002cbc       0x68 car.vo
  .text.lr2_2013my_ms_405_handler
-                0x0000000008002ce4        0x4 car.vo
+                0x0000000008002d24        0x4 car.vo
  .text.lr2_2007my_ms_2a0_handler
-                0x0000000008002ce8       0x48 car.vo
+                0x0000000008002d28       0x48 car.vo
  .text.lr2_2007my_ms_188_handler
-                0x0000000008002d30      0x16c car.vo
+                0x0000000008002d70      0x16c car.vo
  .text.lr2_2007my_ms_110_handler
-                0x0000000008002e9c       0x38 car.vo
+                0x0000000008002edc       0x38 car.vo
  .text.lr2_2007my_ms_fd_handler
-                0x0000000008002ed4       0x28 car.vo
+                0x0000000008002f14       0x28 car.vo
  .text.lr2_2007my_ms_7e_handler
-                0x0000000008002efc       0x5c car.vo
+                0x0000000008002f3c       0x5c car.vo
  .text.lr2_2007my_ms_6c_handler
-                0x0000000008002f58       0x44 car.vo
+                0x0000000008002f98       0x44 car.vo
  .text.xc90_2007my_ms_rem_handler
-                0x0000000008002f9c       0xc8 car.vo
+                0x0000000008002fdc       0xc8 car.vo
  .text.skoda_fabia_ms_rem_handler
-                0x0000000008003064       0xc0 car.vo
+                0x00000000080030a4       0xc0 car.vo
  .text.car_get_next_car
-                0x0000000008003124       0x14 car.vo
-                0x0000000008003124                car_get_next_car
+                0x0000000008003164       0x14 car.vo
+                0x0000000008003164                car_get_next_car
  .text.car_init
-                0x0000000008003138       0x54 car.vo
-                0x0000000008003138                car_init
+                0x0000000008003178       0x54 car.vo
+                0x0000000008003178                car_init
  .text.car_get_car
-                0x000000000800318c        0xc car.vo
-                0x000000000800318c                car_get_car
+                0x00000000080031cc        0xc car.vo
+                0x00000000080031cc                car_get_car
  .text.car_process
-                0x0000000008003198       0x78 car.vo
-                0x0000000008003198                car_process
+                0x00000000080031d8       0x78 car.vo
+                0x00000000080031d8                car_process
  .text.car_get_acc
-                0x0000000008003210       0x10 car.vo
-                0x0000000008003210                car_get_acc
+                0x0000000008003250       0x10 car.vo
+                0x0000000008003250                car_get_acc
  .text.car_get_ign
-                0x0000000008003220       0x10 car.vo
-                0x0000000008003220                car_get_ign
+                0x0000000008003260       0x10 car.vo
+                0x0000000008003260                car_get_ign
  .text.car_get_illum
-                0x0000000008003230       0x14 car.vo
-                0x0000000008003230                car_get_illum
+                0x0000000008003270       0x14 car.vo
+                0x0000000008003270                car_get_illum
  .text.car_get_park_lights
-                0x0000000008003244       0x14 car.vo
-                0x0000000008003244                car_get_park_lights
+                0x0000000008003284       0x14 car.vo
+                0x0000000008003284                car_get_park_lights
  .text.car_get_near_lights
-                0x0000000008003258       0x14 car.vo
-                0x0000000008003258                car_get_near_lights
+                0x0000000008003298       0x14 car.vo
+                0x0000000008003298                car_get_near_lights
  .text.car_get_radar
-                0x000000000800326c       0x1c car.vo
-                0x000000000800326c                car_get_radar
+                0x00000000080032ac       0x1c car.vo
+                0x00000000080032ac                car_get_radar
  .text.car_get_wheel
-                0x0000000008003288       0x10 car.vo
-                0x0000000008003288                car_get_wheel
+                0x00000000080032c8       0x10 car.vo
+                0x00000000080032c8                car_get_wheel
  .text.car_get_vin
-                0x0000000008003298       0x3c car.vo
-                0x0000000008003298                car_get_vin
+                0x00000000080032d8       0x3c car.vo
+                0x00000000080032d8                car_get_vin
  .text.car_get_odometer
-                0x00000000080032d4        0xc car.vo
-                0x00000000080032d4                car_get_odometer
+                0x0000000008003314        0xc car.vo
+                0x0000000008003314                car_get_odometer
  .text.car_get_selector
-                0x00000000080032e0        0xc car.vo
-                0x00000000080032e0                car_get_selector
+                0x0000000008003320        0xc car.vo
+                0x0000000008003320                car_get_selector
  .text.car_get_door_fl
-                0x00000000080032ec       0x14 car.vo
-                0x00000000080032ec                car_get_door_fl
+                0x000000000800332c       0x14 car.vo
+                0x000000000800332c                car_get_door_fl
  .text.car_get_door_fr
-                0x0000000008003300       0x14 car.vo
-                0x0000000008003300                car_get_door_fr
+                0x0000000008003340       0x14 car.vo
+                0x0000000008003340                car_get_door_fr
  .text.car_get_door_rl
-                0x0000000008003314       0x14 car.vo
-                0x0000000008003314                car_get_door_rl
+                0x0000000008003354       0x14 car.vo
+                0x0000000008003354                car_get_door_rl
  .text.car_get_door_rr
-                0x0000000008003328       0x14 car.vo
-                0x0000000008003328                car_get_door_rr
+                0x0000000008003368       0x14 car.vo
+                0x0000000008003368                car_get_door_rr
  .text.car_get_bonnet
-                0x000000000800333c       0x14 car.vo
-                0x000000000800333c                car_get_bonnet
+                0x000000000800337c       0x14 car.vo
+                0x000000000800337c                car_get_bonnet
  .text.car_get_tailgate
-                0x0000000008003350       0x14 car.vo
-                0x0000000008003350                car_get_tailgate
+                0x0000000008003390       0x14 car.vo
+                0x0000000008003390                car_get_tailgate
  .text.car_get_park_break
-                0x0000000008003364       0x14 car.vo
-                0x0000000008003364                car_get_park_break
+                0x00000000080033a4       0x14 car.vo
+                0x00000000080033a4                car_get_park_break
  .text.car_get_low_washer
-                0x0000000008003378       0x14 car.vo
-                0x0000000008003378                car_get_low_washer
+                0x00000000080033b8       0x14 car.vo
+                0x00000000080033b8                car_get_low_washer
  .text.car_get_ds_belt
-                0x000000000800338c       0x14 car.vo
-                0x000000000800338c                car_get_ds_belt
+                0x00000000080033cc       0x14 car.vo
+                0x00000000080033cc                car_get_ds_belt
  .text.car_get_taho
-                0x00000000080033a0        0xc car.vo
-                0x00000000080033a0                car_get_taho
+                0x00000000080033e0        0xc car.vo
+                0x00000000080033e0                car_get_taho
  .text.car_get_speed
-                0x00000000080033ac        0xc car.vo
-                0x00000000080033ac                car_get_speed
+                0x00000000080033ec        0xc car.vo
+                0x00000000080033ec                car_get_speed
  .text.car_get_voltage
-                0x00000000080033b8        0xc car.vo
-                0x00000000080033b8                car_get_voltage
+                0x00000000080033f8        0xc car.vo
+                0x00000000080033f8                car_get_voltage
  .text.car_get_temp
-                0x00000000080033c4        0xc car.vo
-                0x00000000080033c4                car_get_temp
+                0x0000000008003404        0xc car.vo
+                0x0000000008003404                car_get_temp
  .text.car_get_low_voltage
-                0x00000000080033d0       0x14 car.vo
-                0x00000000080033d0                car_get_low_voltage
+                0x0000000008003410       0x14 car.vo
+                0x0000000008003410                car_get_low_voltage
  .text.car_get_low_fuel_level
-                0x00000000080033e4       0x14 car.vo
-                0x00000000080033e4                car_get_low_fuel_level
+                0x0000000008003424       0x14 car.vo
+                0x0000000008003424                car_get_low_fuel_level
  .text.car_get_air_ac
-                0x00000000080033f8       0x10 car.vo
-                0x00000000080033f8                car_get_air_ac
- .text.car_get_air_ac_max
-                0x0000000008003408       0x10 car.vo
-                0x0000000008003408                car_get_air_ac_max
- .text.car_get_air_recycling
-                0x0000000008003418       0x10 car.vo
-                0x0000000008003418                car_get_air_recycling
- .text.car_get_air_recycling_max
-                0x0000000008003428       0x10 car.vo
-                0x0000000008003428                car_get_air_recycling_max
- .text.car_get_air_recycling_min
                 0x0000000008003438       0x10 car.vo
-                0x0000000008003438                car_get_air_recycling_min
- .text.car_get_air_dual
+                0x0000000008003438                car_get_air_ac
+ .text.car_get_air_ac_max
                 0x0000000008003448       0x10 car.vo
-                0x0000000008003448                car_get_air_dual
- .text.car_get_air_rear
+                0x0000000008003448                car_get_air_ac_max
+ .text.car_get_air_recycling
                 0x0000000008003458       0x10 car.vo
-                0x0000000008003458                car_get_air_rear
- .text.car_get_air_rear_lock
+                0x0000000008003458                car_get_air_recycling
+ .text.car_get_air_recycling_max
                 0x0000000008003468       0x10 car.vo
-                0x0000000008003468                car_get_air_rear_lock
- .text.car_get_air_aqs
+                0x0000000008003468                car_get_air_recycling_max
+ .text.car_get_air_recycling_min
                 0x0000000008003478       0x10 car.vo
-                0x0000000008003478                car_get_air_aqs
- .text.car_get_air_wind
+                0x0000000008003478                car_get_air_recycling_min
+ .text.car_get_air_dual
                 0x0000000008003488       0x10 car.vo
-                0x0000000008003488                car_get_air_wind
- .text.car_get_air_middle
+                0x0000000008003488                car_get_air_dual
+ .text.car_get_air_rear
                 0x0000000008003498       0x10 car.vo
-                0x0000000008003498                car_get_air_middle
- .text.car_get_air_floor
+                0x0000000008003498                car_get_air_rear
+ .text.car_get_air_rear_lock
                 0x00000000080034a8       0x10 car.vo
-                0x00000000080034a8                car_get_air_floor
- .text.car_get_air_powerfull
+                0x00000000080034a8                car_get_air_rear_lock
+ .text.car_get_air_aqs
                 0x00000000080034b8       0x10 car.vo
-                0x00000000080034b8                car_get_air_powerfull
- .text.car_get_air_fanspeed
+                0x00000000080034b8                car_get_air_aqs
+ .text.car_get_air_wind
                 0x00000000080034c8       0x10 car.vo
-                0x00000000080034c8                car_get_air_fanspeed
- .text.car_get_air_l_temp
+                0x00000000080034c8                car_get_air_wind
+ .text.car_get_air_middle
                 0x00000000080034d8       0x10 car.vo
-                0x00000000080034d8                car_get_air_l_temp
- .text.car_get_air_r_temp
+                0x00000000080034d8                car_get_air_middle
+ .text.car_get_air_floor
                 0x00000000080034e8       0x10 car.vo
-                0x00000000080034e8                car_get_air_r_temp
- .text.car_get_air_l_seat
+                0x00000000080034e8                car_get_air_floor
+ .text.car_get_air_powerfull
                 0x00000000080034f8       0x10 car.vo
-                0x00000000080034f8                car_get_air_l_seat
- .text.car_get_air_r_seat
+                0x00000000080034f8                car_get_air_powerfull
+ .text.car_get_air_fanspeed
                 0x0000000008003508       0x10 car.vo
-                0x0000000008003508                car_get_air_r_seat
+                0x0000000008003508                car_get_air_fanspeed
+ .text.car_get_air_l_temp
+                0x0000000008003518       0x10 car.vo
+                0x0000000008003518                car_get_air_l_temp
+ .text.car_get_air_r_temp
+                0x0000000008003528       0x10 car.vo
+                0x0000000008003528                car_get_air_r_temp
+ .text.car_get_air_l_seat
+                0x0000000008003538       0x10 car.vo
+                0x0000000008003538                car_get_air_l_seat
+ .text.car_get_air_r_seat
+                0x0000000008003548       0x10 car.vo
+                0x0000000008003548                car_get_air_r_seat
  .text.hw_systick_callback
-                0x0000000008003518       0x90 tick.vo
-                0x0000000008003518                hw_systick_callback
+                0x0000000008003558       0x90 tick.vo
+                0x0000000008003558                hw_systick_callback
  .text.hw_setup
-                0x00000000080035a8       0x48 hw.vo
-                0x00000000080035a8                hw_setup
+                0x00000000080035e8       0x48 hw.vo
+                0x00000000080035e8                hw_setup
  .text.hw_sleep
-                0x00000000080035f0       0x26 hw.vo
-                0x00000000080035f0                hw_sleep
- *fill*         0x0000000008003616        0x2 
+                0x0000000008003630       0x26 hw.vo
+                0x0000000008003630                hw_sleep
+ *fill*         0x0000000008003656        0x2 
  .text.__local_ram
-                0x0000000008003618       0x14 sbrk.vo
-                0x0000000008003618                local_heap_setup
- .text._sbrk_r  0x000000000800362c       0x34 sbrk.vo
-                0x000000000800362c                _sbrk_r
+                0x0000000008003658       0x14 sbrk.vo
+                0x0000000008003658                local_heap_setup
+ .text._sbrk_r  0x000000000800366c       0x34 sbrk.vo
+                0x000000000800366c                _sbrk_r
  .text.hw_clock_setup
-                0x0000000008003660       0x12 volvo_od2/fw/hw_clock.vo
-                0x0000000008003660                hw_clock_setup
- *fill*         0x0000000008003672        0x2 
+                0x00000000080036a0       0x12 volvo_od2/fw/hw_clock.vo
+                0x00000000080036a0                hw_clock_setup
+ *fill*         0x00000000080036b2        0x2 
  .text.hw_can_get_mscan
-                0x0000000008003674        0x8 volvo_od2/fw/hw_can.vo
-                0x0000000008003674                hw_can_get_mscan
+                0x00000000080036b4        0x8 volvo_od2/fw/hw_can.vo
+                0x00000000080036b4                hw_can_get_mscan
  .text.hw_can_set_speed
-                0x000000000800367c       0x7c volvo_od2/fw/hw_can.vo
-                0x000000000800367c                hw_can_set_speed
+                0x00000000080036bc       0x7c volvo_od2/fw/hw_can.vo
+                0x00000000080036bc                hw_can_set_speed
  .text.hw_can_setup
-                0x00000000080036f8       0x7a volvo_od2/fw/hw_can.vo
-                0x00000000080036f8                hw_can_setup
+                0x0000000008003738       0x7a volvo_od2/fw/hw_can.vo
+                0x0000000008003738                hw_can_setup
  .text.hw_can_disable
-                0x0000000008003772       0x5c volvo_od2/fw/hw_can.vo
-                0x0000000008003772                hw_can_disable
+                0x00000000080037b2       0x5c volvo_od2/fw/hw_can.vo
+                0x00000000080037b2                hw_can_disable
  .text.hw_can_get_msg_nums
-                0x00000000080037ce        0x6 volvo_od2/fw/hw_can.vo
-                0x00000000080037ce                hw_can_get_msg_nums
+                0x000000000800380e        0x6 volvo_od2/fw/hw_can.vo
+                0x000000000800380e                hw_can_get_msg_nums
  .text.hw_can_get_pack_nums
-                0x00000000080037d4        0x4 volvo_od2/fw/hw_can.vo
-                0x00000000080037d4                hw_can_get_pack_nums
+                0x0000000008003814        0x4 volvo_od2/fw/hw_can.vo
+                0x0000000008003814                hw_can_get_pack_nums
  .text.hw_can_get_msg
-                0x00000000080037d8       0x2c volvo_od2/fw/hw_can.vo
-                0x00000000080037d8                hw_can_get_msg
+                0x0000000008003818       0x2c volvo_od2/fw/hw_can.vo
+                0x0000000008003818                hw_can_get_msg
  .text.usb_lp_can_rx0_isr
-                0x0000000008003804       0xf4 volvo_od2/fw/hw_can.vo
-                0x0000000008003804                usb_lp_can_rx0_isr
+                0x0000000008003844       0xf4 volvo_od2/fw/hw_can.vo
+                0x0000000008003844                usb_lp_can_rx0_isr
  .text.hw_can_clr
-                0x00000000080038f8        0xa volvo_od2/fw/hw_can.vo
-                0x00000000080038f8                hw_can_clr
+                0x0000000008003938        0xa volvo_od2/fw/hw_can.vo
+                0x0000000008003938                hw_can_clr
  .text.hw_can_sleep
-                0x0000000008003902       0x6a volvo_od2/fw/hw_can.vo
-                0x0000000008003902                hw_can_sleep
+                0x0000000008003942       0x6a volvo_od2/fw/hw_can.vo
+                0x0000000008003942                hw_can_sleep
  .text.exti15_10_isr
-                0x000000000800396c        0x8 volvo_od2/fw/hw_can.vo
-                0x000000000800396c                exti15_10_isr
+                0x00000000080039ac        0x8 volvo_od2/fw/hw_can.vo
+                0x00000000080039ac                exti15_10_isr
  .text.hw_gpio_set
-                0x0000000008003974        0x8 volvo_od2/fw/hw_gpio.vo
-                0x0000000008003974                hw_gpio_set
+                0x00000000080039b4        0x8 volvo_od2/fw/hw_gpio.vo
+                0x00000000080039b4                hw_gpio_set
  .text.hw_gpio_clr
-                0x000000000800397c        0x8 volvo_od2/fw/hw_gpio.vo
-                0x000000000800397c                hw_gpio_clr
+                0x00000000080039bc        0x8 volvo_od2/fw/hw_gpio.vo
+                0x00000000080039bc                hw_gpio_clr
  .text.hw_gpio_set_float
-                0x0000000008003984        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003984                hw_gpio_set_float
+                0x00000000080039c4        0xc volvo_od2/fw/hw_gpio.vo
+                0x00000000080039c4                hw_gpio_set_float
  .text.hw_gpio_setup
-                0x0000000008003990       0x88 volvo_od2/fw/hw_gpio.vo
-                0x0000000008003990                hw_gpio_setup
+                0x00000000080039d0       0x88 volvo_od2/fw/hw_gpio.vo
+                0x00000000080039d0                hw_gpio_setup
  .text.hw_gpio_disable
-                0x0000000008003a18       0x30 volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a18                hw_gpio_disable
+                0x0000000008003a58       0x30 volvo_od2/fw/hw_gpio.vo
+                0x0000000008003a58                hw_gpio_disable
  .text.hw_gpio_rear_on
-                0x0000000008003a48        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a48                hw_gpio_rear_on
+                0x0000000008003a88        0xc volvo_od2/fw/hw_gpio.vo
+                0x0000000008003a88                hw_gpio_rear_on
  .text.hw_gpio_rear_off
-                0x0000000008003a54        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a54                hw_gpio_rear_off
+                0x0000000008003a94        0xc volvo_od2/fw/hw_gpio.vo
+                0x0000000008003a94                hw_gpio_rear_off
  .text.hw_gpio_acc_on
-                0x0000000008003a60        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a60                hw_gpio_acc_on
+                0x0000000008003aa0        0xc volvo_od2/fw/hw_gpio.vo
+                0x0000000008003aa0                hw_gpio_acc_on
  .text.hw_gpio_acc_off
-                0x0000000008003a6c        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a6c                hw_gpio_acc_off
+                0x0000000008003aac        0xc volvo_od2/fw/hw_gpio.vo
+                0x0000000008003aac                hw_gpio_acc_off
  .text.hw_gpio_ill_on
-                0x0000000008003a78        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a78                hw_gpio_ill_on
+                0x0000000008003ab8        0xc volvo_od2/fw/hw_gpio.vo
+                0x0000000008003ab8                hw_gpio_ill_on
  .text.hw_gpio_ill_off
-                0x0000000008003a84        0xc volvo_od2/fw/hw_gpio.vo
-                0x0000000008003a84                hw_gpio_ill_off
+                0x0000000008003ac4        0xc volvo_od2/fw/hw_gpio.vo
+                0x0000000008003ac4                hw_gpio_ill_off
  .text.hw_systick_disable
-                0x0000000008003a90        0xe volvo_od2/fw/hw_tick.vo
-                0x0000000008003a90                hw_systick_disable
+                0x0000000008003ad0        0xe volvo_od2/fw/hw_tick.vo
+                0x0000000008003ad0                hw_systick_disable
  .text.hw_systick_setup
-                0x0000000008003a9e       0x24 volvo_od2/fw/hw_tick.vo
-                0x0000000008003a9e                hw_systick_setup
+                0x0000000008003ade       0x24 volvo_od2/fw/hw_tick.vo
+                0x0000000008003ade                hw_systick_setup
  .text.sys_tick_handler
-                0x0000000008003ac2        0x4 volvo_od2/fw/hw_tick.vo
-                0x0000000008003ac2                sys_tick_handler
- *fill*         0x0000000008003ac6        0x2 
+                0x0000000008003b02        0x4 volvo_od2/fw/hw_tick.vo
+                0x0000000008003b02                sys_tick_handler
+ *fill*         0x0000000008003b06        0x2 
  .text.hw_usart_get
-                0x0000000008003ac8        0x8 volvo_od2/fw/hw_usart.vo
-                0x0000000008003ac8                hw_usart_get
+                0x0000000008003b08        0x8 volvo_od2/fw/hw_usart.vo
+                0x0000000008003b08                hw_usart_get
  .text.hw_usart_setup
-                0x0000000008003ad0       0x96 volvo_od2/fw/hw_usart.vo
-                0x0000000008003ad0                hw_usart_setup
- *fill*         0x0000000008003b66        0x2 
+                0x0000000008003b10       0x96 volvo_od2/fw/hw_usart.vo
+                0x0000000008003b10                hw_usart_setup
+ *fill*         0x0000000008003ba6        0x2 
  .text.usart_isr
-                0x0000000008003b68       0x74 volvo_od2/fw/hw_usart.vo
-                0x0000000008003b68                usart_isr
+                0x0000000008003ba8       0x74 volvo_od2/fw/hw_usart.vo
+                0x0000000008003ba8                usart_isr
  .text.usart1_isr
-                0x0000000008003bdc        0xc volvo_od2/fw/hw_usart.vo
-                0x0000000008003bdc                usart1_isr
+                0x0000000008003c1c        0xc volvo_od2/fw/hw_usart.vo
+                0x0000000008003c1c                usart1_isr
  .text.hw_usart_write
-                0x0000000008003be8       0x1c volvo_od2/fw/hw_usart.vo
-                0x0000000008003be8                hw_usart_write
+                0x0000000008003c28       0x1c volvo_od2/fw/hw_usart.vo
+                0x0000000008003c28                hw_usart_write
  .text.hw_usart_disable
-                0x0000000008003c04       0x20 volvo_od2/fw/hw_usart.vo
-                0x0000000008003c04                hw_usart_disable
+                0x0000000008003c44       0x20 volvo_od2/fw/hw_usart.vo
+                0x0000000008003c44                hw_usart_disable
  .text.hw_usart_read_ch
-                0x0000000008003c24        0x6 volvo_od2/fw/hw_usart.vo
-                0x0000000008003c24                hw_usart_read_ch
+                0x0000000008003c64        0x6 volvo_od2/fw/hw_usart.vo
+                0x0000000008003c64                hw_usart_read_ch
  .text.hw_cpu_sleep
-                0x0000000008003c2a       0x4e volvo_od2/fw/hw_sleep.vo
-                0x0000000008003c2a                hw_cpu_sleep
+                0x0000000008003c6a       0x4e volvo_od2/fw/hw_sleep.vo
+                0x0000000008003c6a                hw_cpu_sleep
  .text.hw_conf_get_addr
-                0x0000000008003c78        0x8 volvo_od2/fw/hw_conf.vo
-                0x0000000008003c78                hw_conf_get_addr
+                0x0000000008003cb8        0x8 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cb8                hw_conf_get_addr
  .text.hw_conf_get_sz
-                0x0000000008003c80        0x6 volvo_od2/fw/hw_conf.vo
-                0x0000000008003c80                hw_conf_get_sz
+                0x0000000008003cc0        0x6 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cc0                hw_conf_get_sz
  .text.hw_conf_unlock
-                0x0000000008003c86        0x6 volvo_od2/fw/hw_conf.vo
-                0x0000000008003c86                hw_conf_unlock
+                0x0000000008003cc6        0x6 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cc6                hw_conf_unlock
  .text.hw_conf_lock
-                0x0000000008003c8c        0xa volvo_od2/fw/hw_conf.vo
-                0x0000000008003c8c                hw_conf_lock
- *fill*         0x0000000008003c96        0x2 
+                0x0000000008003ccc        0xa volvo_od2/fw/hw_conf.vo
+                0x0000000008003ccc                hw_conf_lock
+ *fill*         0x0000000008003cd6        0x2 
  .text.hw_conf_erase
-                0x0000000008003c98       0x18 volvo_od2/fw/hw_conf.vo
-                0x0000000008003c98                hw_conf_erase
+                0x0000000008003cd8       0x18 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cd8                hw_conf_erase
  .text.hw_conf_setup
-                0x0000000008003cb0        0x2 volvo_od2/fw/hw_conf.vo
-                0x0000000008003cb0                hw_conf_setup
+                0x0000000008003cf0        0x2 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cf0                hw_conf_setup
  .text.hw_conf_read_word
-                0x0000000008003cb2        0x4 volvo_od2/fw/hw_conf.vo
-                0x0000000008003cb2                hw_conf_read_word
+                0x0000000008003cf2        0x4 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cf2                hw_conf_read_word
  .text.hw_conf_write_word
-                0x0000000008003cb6        0x4 volvo_od2/fw/hw_conf.vo
-                0x0000000008003cb6                hw_conf_write_word
+                0x0000000008003cf6        0x4 volvo_od2/fw/hw_conf.vo
+                0x0000000008003cf6                hw_conf_write_word
  .text.gpio_set_mode
-                0x0000000008003cba       0x6a libopencm3/lib/stm32/f1/gpio.stm32f1
-                0x0000000008003cba                gpio_set_mode
+                0x0000000008003cfa       0x6a libopencm3/lib/stm32/f1/gpio.stm32f1
+                0x0000000008003cfa                gpio_set_mode
  .text.rcc_wait_for_osc_ready
-                0x0000000008003d24       0x5c libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003d24                rcc_wait_for_osc_ready
+                0x0000000008003d64       0x5c libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003d64                rcc_wait_for_osc_ready
  .text.rcc_osc_on
-                0x0000000008003d80       0x60 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003d80                rcc_osc_on
+                0x0000000008003dc0       0x60 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003dc0                rcc_osc_on
  .text.rcc_set_sysclk_source
-                0x0000000008003de0       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003de0                rcc_set_sysclk_source
+                0x0000000008003e20       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e20                rcc_set_sysclk_source
  .text.rcc_set_pll_multiplication_factor
-                0x0000000008003df4       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003df4                rcc_set_pll_multiplication_factor
+                0x0000000008003e34       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e34                rcc_set_pll_multiplication_factor
  .text.rcc_set_pll_source
-                0x0000000008003e08       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e08                rcc_set_pll_source
+                0x0000000008003e48       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e48                rcc_set_pll_source
  .text.rcc_set_pllxtpre
-                0x0000000008003e1c       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e1c                rcc_set_pllxtpre
+                0x0000000008003e5c       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e5c                rcc_set_pllxtpre
  .text.rcc_set_adcpre
-                0x0000000008003e30       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e30                rcc_set_adcpre
+                0x0000000008003e70       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e70                rcc_set_adcpre
  .text.rcc_set_ppre2
-                0x0000000008003e44       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e44                rcc_set_ppre2
+                0x0000000008003e84       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e84                rcc_set_ppre2
  .text.rcc_set_ppre1
-                0x0000000008003e58       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e58                rcc_set_ppre1
+                0x0000000008003e98       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003e98                rcc_set_ppre1
  .text.rcc_set_hpre
-                0x0000000008003e6c       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e6c                rcc_set_hpre
+                0x0000000008003eac       0x14 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003eac                rcc_set_hpre
  .text.rcc_clock_setup_in_hse_8mhz_out_72mhz
-                0x0000000008003e80       0x88 libopencm3/lib/stm32/f1/rcc.stm32f1
-                0x0000000008003e80                rcc_clock_setup_in_hse_8mhz_out_72mhz
+                0x0000000008003ec0       0x88 libopencm3/lib/stm32/f1/rcc.stm32f1
+                0x0000000008003ec0                rcc_clock_setup_in_hse_8mhz_out_72mhz
  .text.flash_get_status_flags
-                0x0000000008003f08       0x24 libopencm3/lib/stm32/f1/flash.stm32f1
-                0x0000000008003f08                flash_get_status_flags
+                0x0000000008003f48       0x24 libopencm3/lib/stm32/f1/flash.stm32f1
+                0x0000000008003f48                flash_get_status_flags
  .text.flash_program_half_word
-                0x0000000008003f2c       0x7c libopencm3/lib/stm32/f1/flash.stm32f1
-                0x0000000008003f2c                flash_program_half_word
+                0x0000000008003f6c       0x7c libopencm3/lib/stm32/f1/flash.stm32f1
+                0x0000000008003f6c                flash_program_half_word
  .text.flash_erase_page
-                0x0000000008003fa8       0x88 libopencm3/lib/stm32/f1/flash.stm32f1
-                0x0000000008003fa8                flash_erase_page
+                0x0000000008003fe8       0x88 libopencm3/lib/stm32/f1/flash.stm32f1
+                0x0000000008003fe8                flash_erase_page
  .text.gpio_set
-                0x0000000008004030        0x4 libopencm3/lib/stm32/common/gpio_common_all.stm32f1
-                0x0000000008004030                gpio_set
+                0x0000000008004070        0x4 libopencm3/lib/stm32/common/gpio_common_all.stm32f1
+                0x0000000008004070                gpio_set
  .text.gpio_clear
-                0x0000000008004034        0x6 libopencm3/lib/stm32/common/gpio_common_all.stm32f1
-                0x0000000008004034                gpio_clear
- *fill*         0x000000000800403a        0x2 
+                0x0000000008004074        0x6 libopencm3/lib/stm32/common/gpio_common_all.stm32f1
+                0x0000000008004074                gpio_clear
+ *fill*         0x000000000800407a        0x2 
  .text.usart_set_baudrate
-                0x000000000800403c       0x28 libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x000000000800403c                usart_set_baudrate
+                0x000000000800407c       0x28 libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x000000000800407c                usart_set_baudrate
  .text.usart_set_databits
-                0x0000000008004064       0x12 libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x0000000008004064                usart_set_databits
+                0x00000000080040a4       0x12 libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040a4                usart_set_databits
  .text.usart_set_stopbits
-                0x0000000008004076        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x0000000008004076                usart_set_stopbits
+                0x00000000080040b6        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040b6                usart_set_stopbits
  .text.usart_set_parity
-                0x0000000008004082        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x0000000008004082                usart_set_parity
+                0x00000000080040c2        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040c2                usart_set_parity
  .text.usart_set_mode
-                0x000000000800408e        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x000000000800408e                usart_set_mode
+                0x00000000080040ce        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040ce                usart_set_mode
  .text.usart_set_flow_control
-                0x000000000800409a        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x000000000800409a                usart_set_flow_control
+                0x00000000080040da        0xc libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040da                usart_set_flow_control
  .text.usart_enable
-                0x00000000080040a6        0xa libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x00000000080040a6                usart_enable
+                0x00000000080040e6        0xa libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040e6                usart_enable
  .text.usart_disable
-                0x00000000080040b0        0xa libopencm3/lib/stm32/common/usart_common_all.stm32f1
-                0x00000000080040b0                usart_disable
+                0x00000000080040f0        0xa libopencm3/lib/stm32/common/usart_common_all.stm32f1
+                0x00000000080040f0                usart_disable
  .text.usart_send
-                0x00000000080040ba        0x8 libopencm3/lib/stm32/common/usart_common_f124.stm32f1
-                0x00000000080040ba                usart_send
+                0x00000000080040fa        0x8 libopencm3/lib/stm32/common/usart_common_f124.stm32f1
+                0x00000000080040fa                usart_send
  .text.usart_recv
-                0x00000000080040c2        0x8 libopencm3/lib/stm32/common/usart_common_f124.stm32f1
-                0x00000000080040c2                usart_recv
+                0x0000000008004102        0x8 libopencm3/lib/stm32/common/usart_common_f124.stm32f1
+                0x0000000008004102                usart_recv
  .text.rcc_peripheral_reset
-                0x00000000080040ca        0x8 libopencm3/lib/stm32/common/rcc_common_all.stm32f1
-                0x00000000080040ca                rcc_peripheral_reset
+                0x000000000800410a        0x8 libopencm3/lib/stm32/common/rcc_common_all.stm32f1
+                0x000000000800410a                rcc_peripheral_reset
  .text.rcc_peripheral_clear_reset
-                0x00000000080040d2        0xa libopencm3/lib/stm32/common/rcc_common_all.stm32f1
-                0x00000000080040d2                rcc_peripheral_clear_reset
+                0x0000000008004112        0xa libopencm3/lib/stm32/common/rcc_common_all.stm32f1
+                0x0000000008004112                rcc_peripheral_clear_reset
  .text.rcc_periph_clock_enable
-                0x00000000080040dc       0x1a libopencm3/lib/stm32/common/rcc_common_all.stm32f1
-                0x00000000080040dc                rcc_periph_clock_enable
+                0x000000000800411c       0x1a libopencm3/lib/stm32/common/rcc_common_all.stm32f1
+                0x000000000800411c                rcc_periph_clock_enable
  .text.rcc_periph_clock_disable
-                0x00000000080040f6       0x1c libopencm3/lib/stm32/common/rcc_common_all.stm32f1
-                0x00000000080040f6                rcc_periph_clock_disable
- *fill*         0x0000000008004112        0x2 
+                0x0000000008004136       0x1c libopencm3/lib/stm32/common/rcc_common_all.stm32f1
+                0x0000000008004136                rcc_periph_clock_disable
+ *fill*         0x0000000008004152        0x2 
  .text.pwr_clear_wakeup_flag
-                0x0000000008004114       0x10 libopencm3/lib/stm32/common/pwr_common_all.stm32f1
-                0x0000000008004114                pwr_clear_wakeup_flag
+                0x0000000008004154       0x10 libopencm3/lib/stm32/common/pwr_common_all.stm32f1
+                0x0000000008004154                pwr_clear_wakeup_flag
  .text.pwr_set_stop_mode
-                0x0000000008004124       0x10 libopencm3/lib/stm32/common/pwr_common_all.stm32f1
-                0x0000000008004124                pwr_set_stop_mode
+                0x0000000008004164       0x10 libopencm3/lib/stm32/common/pwr_common_all.stm32f1
+                0x0000000008004164                pwr_set_stop_mode
  .text.pwr_voltage_regulator_low_power_in_stop
-                0x0000000008004134       0x10 libopencm3/lib/stm32/common/pwr_common_all.stm32f1
-                0x0000000008004134                pwr_voltage_regulator_low_power_in_stop
+                0x0000000008004174       0x10 libopencm3/lib/stm32/common/pwr_common_all.stm32f1
+                0x0000000008004174                pwr_voltage_regulator_low_power_in_stop
  .text.blocking_handler
-                0x0000000008004144        0x2 libopencm3/lib/cm3/vector.stm32f1
-                0x0000000008004144                usart3_isr
-                0x0000000008004144                rtc_isr
-                0x0000000008004144                tim7_isr
-                0x0000000008004144                adc1_2_isr
-                0x0000000008004144                tim1_trg_com_isr
-                0x0000000008004144                usb_hp_can_tx_isr
-                0x0000000008004144                tim6_isr
-                0x0000000008004144                usb_wakeup_isr
-                0x0000000008004144                blocking_handler
-                0x0000000008004144                tim5_isr
-                0x0000000008004144                otg_fs_isr
-                0x0000000008004144                spi1_isr
-                0x0000000008004144                exti2_isr
-                0x0000000008004144                dma1_channel6_isr
-                0x0000000008004144                can_rx1_isr
-                0x0000000008004144                dma1_channel5_isr
-                0x0000000008004144                dma2_channel5_isr
-                0x0000000008004144                usage_fault_handler
-                0x0000000008004144                tim8_trg_com_isr
-                0x0000000008004144                can2_rx0_isr
-                0x0000000008004144                tim1_brk_isr
-                0x0000000008004144                can2_rx1_isr
-                0x0000000008004144                tim1_cc_isr
-                0x0000000008004144                sdio_isr
-                0x0000000008004144                eth_isr
-                0x0000000008004144                dma1_channel4_isr
-                0x0000000008004144                tim8_brk_isr
-                0x0000000008004144                dma2_channel4_5_isr
-                0x0000000008004144                pvd_isr
-                0x0000000008004144                rcc_isr
-                0x0000000008004144                flash_isr
-                0x0000000008004144                uart4_isr
-                0x0000000008004144                rtc_alarm_isr
-                0x0000000008004144                hard_fault_handler
-                0x0000000008004144                exti1_isr
-                0x0000000008004144                i2c1_ev_isr
-                0x0000000008004144                dma2_channel1_isr
-                0x0000000008004144                spi2_isr
-                0x0000000008004144                tim8_up_isr
-                0x0000000008004144                dma2_channel2_isr
-                0x0000000008004144                exti3_isr
-                0x0000000008004144                adc3_isr
-                0x0000000008004144                tim3_isr
-                0x0000000008004144                usart2_isr
-                0x0000000008004144                i2c2_er_isr
-                0x0000000008004144                i2c2_ev_isr
-                0x0000000008004144                uart5_isr
-                0x0000000008004144                fsmc_isr
-                0x0000000008004144                dma1_channel1_isr
-                0x0000000008004144                exti4_isr
-                0x0000000008004144                mem_manage_handler
-                0x0000000008004144                can2_tx_isr
-                0x0000000008004144                exti9_5_isr
-                0x0000000008004144                dma2_channel3_isr
-                0x0000000008004144                dma1_channel7_isr
-                0x0000000008004144                tim1_up_isr
-                0x0000000008004144                can2_sce_isr
-                0x0000000008004144                tim4_isr
-                0x0000000008004144                dma1_channel2_isr
-                0x0000000008004144                i2c1_er_isr
-                0x0000000008004144                can_sce_isr
-                0x0000000008004144                tim8_cc_isr
-                0x0000000008004144                tamper_isr
-                0x0000000008004144                eth_wkup_isr
-                0x0000000008004144                bus_fault_handler
-                0x0000000008004144                wwdg_isr
-                0x0000000008004144                dma1_channel3_isr
-                0x0000000008004144                spi3_isr
-                0x0000000008004144                tim2_isr
-                0x0000000008004144                exti0_isr
+                0x0000000008004184        0x2 libopencm3/lib/cm3/vector.stm32f1
+                0x0000000008004184                usart3_isr
+                0x0000000008004184                rtc_isr
+                0x0000000008004184                tim7_isr
+                0x0000000008004184                adc1_2_isr
+                0x0000000008004184                tim1_trg_com_isr
+                0x0000000008004184                usb_hp_can_tx_isr
+                0x0000000008004184                tim6_isr
+                0x0000000008004184                usb_wakeup_isr
+                0x0000000008004184                blocking_handler
+                0x0000000008004184                tim5_isr
+                0x0000000008004184                otg_fs_isr
+                0x0000000008004184                spi1_isr
+                0x0000000008004184                exti2_isr
+                0x0000000008004184                dma1_channel6_isr
+                0x0000000008004184                can_rx1_isr
+                0x0000000008004184                dma1_channel5_isr
+                0x0000000008004184                dma2_channel5_isr
+                0x0000000008004184                usage_fault_handler
+                0x0000000008004184                tim8_trg_com_isr
+                0x0000000008004184                can2_rx0_isr
+                0x0000000008004184                tim1_brk_isr
+                0x0000000008004184                can2_rx1_isr
+                0x0000000008004184                tim1_cc_isr
+                0x0000000008004184                sdio_isr
+                0x0000000008004184                eth_isr
+                0x0000000008004184                dma1_channel4_isr
+                0x0000000008004184                tim8_brk_isr
+                0x0000000008004184                dma2_channel4_5_isr
+                0x0000000008004184                pvd_isr
+                0x0000000008004184                rcc_isr
+                0x0000000008004184                flash_isr
+                0x0000000008004184                uart4_isr
+                0x0000000008004184                rtc_alarm_isr
+                0x0000000008004184                hard_fault_handler
+                0x0000000008004184                exti1_isr
+                0x0000000008004184                i2c1_ev_isr
+                0x0000000008004184                dma2_channel1_isr
+                0x0000000008004184                spi2_isr
+                0x0000000008004184                tim8_up_isr
+                0x0000000008004184                dma2_channel2_isr
+                0x0000000008004184                exti3_isr
+                0x0000000008004184                adc3_isr
+                0x0000000008004184                tim3_isr
+                0x0000000008004184                usart2_isr
+                0x0000000008004184                i2c2_er_isr
+                0x0000000008004184                i2c2_ev_isr
+                0x0000000008004184                uart5_isr
+                0x0000000008004184                fsmc_isr
+                0x0000000008004184                dma1_channel1_isr
+                0x0000000008004184                exti4_isr
+                0x0000000008004184                mem_manage_handler
+                0x0000000008004184                can2_tx_isr
+                0x0000000008004184                exti9_5_isr
+                0x0000000008004184                dma2_channel3_isr
+                0x0000000008004184                dma1_channel7_isr
+                0x0000000008004184                tim1_up_isr
+                0x0000000008004184                can2_sce_isr
+                0x0000000008004184                tim4_isr
+                0x0000000008004184                dma1_channel2_isr
+                0x0000000008004184                i2c1_er_isr
+                0x0000000008004184                can_sce_isr
+                0x0000000008004184                tim8_cc_isr
+                0x0000000008004184                tamper_isr
+                0x0000000008004184                eth_wkup_isr
+                0x0000000008004184                bus_fault_handler
+                0x0000000008004184                wwdg_isr
+                0x0000000008004184                dma1_channel3_isr
+                0x0000000008004184                spi3_isr
+                0x0000000008004184                tim2_isr
+                0x0000000008004184                exti0_isr
  .text.null_handler
-                0x0000000008004146        0x2 libopencm3/lib/cm3/vector.stm32f1
-                0x0000000008004146                null_handler
-                0x0000000008004146                sv_call_handler
-                0x0000000008004146                pend_sv_handler
-                0x0000000008004146                debug_monitor_handler
-                0x0000000008004146                nmi_handler
+                0x0000000008004186        0x2 libopencm3/lib/cm3/vector.stm32f1
+                0x0000000008004186                null_handler
+                0x0000000008004186                sv_call_handler
+                0x0000000008004186                pend_sv_handler
+                0x0000000008004186                debug_monitor_handler
+                0x0000000008004186                nmi_handler
  .text.reset_handler
-                0x0000000008004148       0x90 libopencm3/lib/cm3/vector.stm32f1
-                0x0000000008004148                reset_handler
+                0x0000000008004188       0x90 libopencm3/lib/cm3/vector.stm32f1
+                0x0000000008004188                reset_handler
  .text.systick_set_reload
-                0x00000000080041d8        0xc libopencm3/lib/cm3/systick.stm32f1
-                0x00000000080041d8                systick_set_reload
+                0x0000000008004218        0xc libopencm3/lib/cm3/systick.stm32f1
+                0x0000000008004218                systick_set_reload
  .text.systick_set_clocksource
-                0x00000000080041e4       0x14 libopencm3/lib/cm3/systick.stm32f1
-                0x00000000080041e4                systick_set_clocksource
+                0x0000000008004224       0x14 libopencm3/lib/cm3/systick.stm32f1
+                0x0000000008004224                systick_set_clocksource
  .text.systick_interrupt_enable
-                0x00000000080041f8        0xe libopencm3/lib/cm3/systick.stm32f1
-                0x00000000080041f8                systick_interrupt_enable
+                0x0000000008004238        0xe libopencm3/lib/cm3/systick.stm32f1
+                0x0000000008004238                systick_interrupt_enable
  .text.systick_interrupt_disable
-                0x0000000008004206        0xe libopencm3/lib/cm3/systick.stm32f1
-                0x0000000008004206                systick_interrupt_disable
+                0x0000000008004246        0xe libopencm3/lib/cm3/systick.stm32f1
+                0x0000000008004246                systick_interrupt_disable
  .text.systick_counter_enable
-                0x0000000008004214        0xe libopencm3/lib/cm3/systick.stm32f1
-                0x0000000008004214                systick_counter_enable
+                0x0000000008004254        0xe libopencm3/lib/cm3/systick.stm32f1
+                0x0000000008004254                systick_counter_enable
  .text.systick_counter_disable
-                0x0000000008004222        0xe libopencm3/lib/cm3/systick.stm32f1
-                0x0000000008004222                systick_counter_disable
+                0x0000000008004262        0xe libopencm3/lib/cm3/systick.stm32f1
+                0x0000000008004262                systick_counter_disable
  .text.nvic_enable_irq
-                0x0000000008004230       0x18 libopencm3/lib/cm3/nvic.stm32f1
-                0x0000000008004230                nvic_enable_irq
+                0x0000000008004270       0x18 libopencm3/lib/cm3/nvic.stm32f1
+                0x0000000008004270                nvic_enable_irq
  .text.nvic_disable_irq
-                0x0000000008004248       0x18 libopencm3/lib/cm3/nvic.stm32f1
-                0x0000000008004248                nvic_disable_irq
+                0x0000000008004288       0x18 libopencm3/lib/cm3/nvic.stm32f1
+                0x0000000008004288                nvic_disable_irq
  .text.nvic_set_priority
-                0x0000000008004260       0x20 libopencm3/lib/cm3/nvic.stm32f1
-                0x0000000008004260                nvic_set_priority
+                0x00000000080042a0       0x20 libopencm3/lib/cm3/nvic.stm32f1
+                0x00000000080042a0                nvic_set_priority
  .text.flash_set_ws
-                0x0000000008004280       0x14 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
-                0x0000000008004280                flash_set_ws
+                0x00000000080042c0       0x14 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
+                0x00000000080042c0                flash_set_ws
  .text.flash_unlock
-                0x0000000008004294       0x20 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
-                0x0000000008004294                flash_unlock
+                0x00000000080042d4       0x20 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
+                0x00000000080042d4                flash_unlock
  .text.flash_lock
-                0x00000000080042b4       0x10 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
-                0x00000000080042b4                flash_lock
+                0x00000000080042f4       0x10 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
+                0x00000000080042f4                flash_lock
  .text.flash_wait_for_last_operation
-                0x00000000080042c4        0xc libopencm3/lib/stm32/common/flash_common_f01.stm32f1
-                0x00000000080042c4                flash_wait_for_last_operation
+                0x0000000008004304        0xc libopencm3/lib/stm32/common/flash_common_f01.stm32f1
+                0x0000000008004304                flash_wait_for_last_operation
  .text.flash_program_word
-                0x00000000080042d0       0x18 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
-                0x00000000080042d0                flash_program_word
+                0x0000000008004310       0x18 libopencm3/lib/stm32/common/flash_common_f01.stm32f1
+                0x0000000008004310                flash_program_word
  .text.can_reset
-                0x00000000080042e8       0x38 libopencm3/lib/stm32/can.stm32f1
-                0x00000000080042e8                can_reset
+                0x0000000008004328       0x38 libopencm3/lib/stm32/can.stm32f1
+                0x0000000008004328                can_reset
  .text.can_init
-                0x0000000008004320      0x12a libopencm3/lib/stm32/can.stm32f1
-                0x0000000008004320                can_init
+                0x0000000008004360      0x12a libopencm3/lib/stm32/can.stm32f1
+                0x0000000008004360                can_init
  .text.can_filter_init
-                0x000000000800444a       0x90 libopencm3/lib/stm32/can.stm32f1
-                0x000000000800444a                can_filter_init
+                0x000000000800448a       0x90 libopencm3/lib/stm32/can.stm32f1
+                0x000000000800448a                can_filter_init
  .text.can_filter_id_mask_32bit_init
-                0x00000000080044da       0x1c libopencm3/lib/stm32/can.stm32f1
-                0x00000000080044da                can_filter_id_mask_32bit_init
+                0x000000000800451a       0x1c libopencm3/lib/stm32/can.stm32f1
+                0x000000000800451a                can_filter_id_mask_32bit_init
  .text.can_enable_irq
-                0x00000000080044f6        0x8 libopencm3/lib/stm32/can.stm32f1
-                0x00000000080044f6                can_enable_irq
+                0x0000000008004536        0x8 libopencm3/lib/stm32/can.stm32f1
+                0x0000000008004536                can_enable_irq
  .text.can_disable_irq
-                0x00000000080044fe        0xa libopencm3/lib/stm32/can.stm32f1
-                0x00000000080044fe                can_disable_irq
+                0x000000000800453e        0xa libopencm3/lib/stm32/can.stm32f1
+                0x000000000800453e                can_disable_irq
  .text.can_fifo_release
-                0x0000000008004508       0x16 libopencm3/lib/stm32/can.stm32f1
-                0x0000000008004508                can_fifo_release
+                0x0000000008004548       0x16 libopencm3/lib/stm32/can.stm32f1
+                0x0000000008004548                can_fifo_release
  .text.can_receive
-                0x000000000800451e       0xa0 libopencm3/lib/stm32/can.stm32f1
-                0x000000000800451e                can_receive
- *fill*         0x00000000080045be        0x2 
+                0x000000000800455e       0xa0 libopencm3/lib/stm32/can.stm32f1
+                0x000000000800455e                can_receive
+ *fill*         0x00000000080045fe        0x2 
  .text.exti_set_trigger
-                0x00000000080045c0       0x48 libopencm3/lib/stm32/common/exti_common_all.stm32f1
-                0x00000000080045c0                exti_set_trigger
+                0x0000000008004600       0x48 libopencm3/lib/stm32/common/exti_common_all.stm32f1
+                0x0000000008004600                exti_set_trigger
  .text.exti_enable_request
-                0x0000000008004608       0x1c libopencm3/lib/stm32/common/exti_common_all.stm32f1
-                0x0000000008004608                exti_enable_request
+                0x0000000008004648       0x1c libopencm3/lib/stm32/common/exti_common_all.stm32f1
+                0x0000000008004648                exti_enable_request
  .text.exti_disable_request
-                0x0000000008004624       0x20 libopencm3/lib/stm32/common/exti_common_all.stm32f1
-                0x0000000008004624                exti_disable_request
+                0x0000000008004664       0x20 libopencm3/lib/stm32/common/exti_common_all.stm32f1
+                0x0000000008004664                exti_disable_request
  .text.exti_reset_request
-                0x0000000008004644        0xc libopencm3/lib/stm32/common/exti_common_all.stm32f1
-                0x0000000008004644                exti_reset_request
+                0x0000000008004684        0xc libopencm3/lib/stm32/common/exti_common_all.stm32f1
+                0x0000000008004684                exti_reset_request
  .text.exti_select_source
-                0x0000000008004650       0xa0 libopencm3/lib/stm32/common/exti_common_all.stm32f1
-                0x0000000008004650                exti_select_source
- .text          0x00000000080046f0       0xec /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memcpy.o)
-                0x00000000080046f0                memcpy
- .text          0x00000000080047dc       0xa4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memset.o)
-                0x00000000080047dc                memset
- .text          0x0000000008004880      0x100 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-snprintf.o)
-                0x0000000008004880                _snprintf_r
-                0x00000000080048fc                snprintf
- .text          0x0000000008004980       0xbc /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strcpy.o)
-                0x0000000008004980                strcpy
- .text          0x0000000008004a3c       0x5c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strlen-stub.o)
-                0x0000000008004a3c                strlen
- .text          0x0000000008004a98     0x1498 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfprintf.o)
-                0x0000000008004a98                _svfprintf_r
- .text          0x0000000008005f30      0xff4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-dtoa.o)
-                0x000000000800605c                _dtoa_r
- .text          0x0000000008006f24       0x14 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-localeconv.o)
-                0x0000000008006f24                __localeconv_l
-                0x0000000008006f28                _localeconv_r
-                0x0000000008006f30                localeconv
- .text          0x0000000008006f38      0x54c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
-                0x0000000008006f38                _malloc_r
- .text          0x0000000008007484       0x90 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memchr-stub.o)
-                0x0000000008007484                memchr
- .text          0x0000000008007514        0x8 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mlock.o)
-                0x0000000008007514                __malloc_lock
-                0x0000000008007518                __malloc_unlock
- .text          0x000000000800751c      0xa68 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mprec.o)
-                0x000000000800751c                _Balloc
-                0x0000000008007568                _Bfree
-                0x000000000800757c                __multadd
-                0x0000000008007620                __s2b
-                0x00000000080076d4                __hi0bits
-                0x0000000008007714                __lo0bits
-                0x000000000800776c                __i2b
-                0x00000000080077c8                __multiply
-                0x0000000008007924                __pow5mult
-                0x00000000080079dc                __lshift
-                0x0000000008007ac8                __mcmp
-                0x0000000008007b08                __mdiff
-                0x0000000008007c54                __ulp
-                0x0000000008007c98                __b2d
-                0x0000000008007d68                __d2b
-                0x0000000008007e2c                __ratio
-                0x0000000008007e8c                _mprec_log10
-                0x0000000008007ec4                __copybits
-                0x0000000008007f24                __any_on
- .text          0x0000000008007f84      0xb7c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfiprintf.o)
-                0x0000000008007f84                __ssprint_r
-                0x0000000008008080                _svfiprintf_r
- .text          0x0000000008008b00       0x4c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-assert.o)
-                0x0000000008008b00                __assert_func
-                0x0000000008008b40                __assert
- .text          0x0000000008008b4c       0x60 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-callocr.o)
-                0x0000000008008b4c                _calloc_r
- .text          0x0000000008008bac       0x44 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fiprintf.o)
-                0x0000000008008bac                _fiprintf_r
-                0x0000000008008bc8                fiprintf
- .text          0x0000000008008bf0      0x2a0 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-freer.o)
-                0x0000000008008bf0                _malloc_trim_r
-                0x0000000008008c90                _free_r
- .text          0x0000000008008e90       0x8c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-locale.o)
-                0x0000000008008e90                _setlocale_r
-                0x0000000008008ed0                __locale_mb_cur_max
-                0x0000000008008edc                setlocale
- .text          0x0000000008008f1c       0x40 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mbtowc_r.o)
-                0x0000000008008f1c                _mbtowc_r
-                0x0000000008008f30                __ascii_mbtowc
- .text          0x0000000008008f5c       0xf8 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memmove.o)
-                0x0000000008008f5c                memmove
- .text          0x0000000008009054      0x3dc /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-reallocr.o)
-                0x0000000008009054                _realloc_r
- .text          0x0000000008009430      0x1bc /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strcmp.o)
-                0x0000000008009430                strcmp
- .text          0x00000000080095ec      0xd48 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-vfiprintf.o)
-                0x0000000008009664                __sprint_r
-                0x0000000008009678                _vfiprintf_r
-                0x000000000800a2ac                vfiprintf
- .text          0x000000000800a334       0x30 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wctomb_r.o)
-                0x000000000800a334                _wctomb_r
-                0x000000000800a348                __ascii_wctomb
- .text          0x000000000800a364       0xd4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wsetup.o)
-                0x000000000800a364                __swsetup_r
- .text          0x000000000800a438       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-abort.o)
-                0x000000000800a438                abort
- .text          0x000000000800a448      0x1a0 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fflush.o)
-                0x000000000800a448                __sflush_r
-                0x000000000800a56c                _fflush_r
-                0x000000000800a598                fflush
- .text          0x000000000800a5e8      0x214 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-findfp.o)
-                0x000000000800a5ec                _cleanup_r
-                0x000000000800a6d0                __sfmoreglue
-                0x000000000800a700                __sfp
-                0x000000000800a7a8                _cleanup
-                0x000000000800a7bc                __sinit
-                0x000000000800a7c4                __sfp_lock_acquire
-                0x000000000800a7c8                __sfp_lock_release
-                0x000000000800a7cc                __sinit_lock_acquire
-                0x000000000800a7d0                __sinit_lock_release
-                0x000000000800a7d4                __fp_lock_all
-                0x000000000800a7e8                __fp_unlock_all
- .text          0x000000000800a7fc      0x104 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fputwc.o)
-                0x000000000800a7fc                __fputwc
-                0x000000000800a89c                _fputwc_r
-                0x000000000800a8c0                fputwc
- .text          0x000000000800a900      0x2f0 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fvwrite.o)
-                0x000000000800a900                __sfvwrite_r
- .text          0x000000000800abf0       0x88 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fwalk.o)
-                0x000000000800abf0                _fwalk
-                0x000000000800ac30                _fwalk_reent
- .text          0x000000000800ac78      0x140 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-makebuf.o)
-                0x000000000800ac78                __smakebuf_r
-                0x000000000800ad58                __swhatbuf_r
- .text          0x000000000800adb8      0x28c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signal.o)
-                0x000000000800adb8                _init_signal_r
-                0x000000000800ade8                _signal_r
-                0x000000000800ae34                _raise_r
-                0x000000000800ae8c                __sigtramp_r
-                0x000000000800aef4                raise
-                0x000000000800af50                signal
-                0x000000000800afa4                _init_signal
-                0x000000000800afdc                __sigtramp
- .text          0x000000000800b044       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signalr.o)
-                0x000000000800b044                _kill_r
-                0x000000000800b06c                _getpid_r
- .text          0x000000000800b070       0x90 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-stdio.o)
-                0x000000000800b070                __sread
-                0x000000000800b094                __seofread
-                0x000000000800b098                __swrite
-                0x000000000800b0d8                __sseek
-                0x000000000800b0f8                __sclose
- .text          0x000000000800b100       0xc4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wbuf.o)
-                0x000000000800b100                __swbuf_r
-                0x000000000800b1b0                __swbuf
- .text          0x000000000800b1c4       0x88 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wcrtomb.o)
-                0x000000000800b1c4                _wcrtomb_r
-                0x000000000800b200                wcrtomb
- .text          0x000000000800b24c       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-writer.o)
-                0x000000000800b24c                _write_r
- .text          0x000000000800b278       0x24 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-closer.o)
-                0x000000000800b278                _close_r
- .text          0x000000000800b29c       0xd4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fclose.o)
-                0x000000000800b300                _fclose_r
-                0x000000000800b334                fclose
- .text          0x000000000800b370       0x28 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fstatr.o)
-                0x000000000800b370                _fstat_r
- .text          0x000000000800b398       0x24 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-isattyr.o)
-                0x000000000800b398                _isatty_r
- .text          0x000000000800b3bc       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lseekr.o)
-                0x000000000800b3bc                _lseek_r
- .text          0x000000000800b3e8       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-readr.o)
-                0x000000000800b3e8                _read_r
- .text          0x000000000800b414      0x378 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
-                0x000000000800b414                __aeabi_drsub
-                0x000000000800b41c                __aeabi_dsub
-                0x000000000800b41c                __subdf3
-                0x000000000800b420                __adddf3
-                0x000000000800b420                __aeabi_dadd
-                0x000000000800b698                __aeabi_ui2d
-                0x000000000800b698                __floatunsidf
-                0x000000000800b6b8                __floatsidf
-                0x000000000800b6b8                __aeabi_i2d
-                0x000000000800b6dc                __extendsfdf2
-                0x000000000800b6dc                __aeabi_f2d
-                0x000000000800b720                __aeabi_ul2d
-                0x000000000800b720                __floatundidf
-                0x000000000800b730                __floatdidf
-                0x000000000800b730                __aeabi_l2d
- .text          0x000000000800b78c      0x424 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
-                0x000000000800b78c                __aeabi_dmul
-                0x000000000800b78c                __muldf3
-                0x000000000800b9e0                __aeabi_ddiv
-                0x000000000800b9e0                __divdf3
- .text          0x000000000800bbb0      0x110 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpdf2.o)
-                0x000000000800bbb0                __gtdf2
-                0x000000000800bbb0                __gedf2
-                0x000000000800bbb8                __ltdf2
-                0x000000000800bbb8                __ledf2
-                0x000000000800bbc0                __cmpdf2
-                0x000000000800bbc0                __eqdf2
-                0x000000000800bbc0                __nedf2
-                0x000000000800bc3c                __aeabi_cdrcmple
-                0x000000000800bc4c                __aeabi_cdcmple
-                0x000000000800bc4c                __aeabi_cdcmpeq
-                0x000000000800bc5c                __aeabi_dcmpeq
-                0x000000000800bc70                __aeabi_dcmplt
-                0x000000000800bc84                __aeabi_dcmple
-                0x000000000800bc98                __aeabi_dcmpge
-                0x000000000800bcac                __aeabi_dcmpgt
- .text          0x000000000800bcc0       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_unorddf2.o)
-                0x000000000800bcc0                __aeabi_dcmpun
-                0x000000000800bcc0                __unorddf2
- .text          0x000000000800bcec       0x50 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixdfsi.o)
-                0x000000000800bcec                __fixdfsi
-                0x000000000800bcec                __aeabi_d2iz
- .text          0x000000000800bd3c       0x40 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunsdfsi.o)
-                0x000000000800bd3c                __fixunsdfsi
-                0x000000000800bd3c                __aeabi_d2uiz
- .text          0x000000000800bd7c      0x21c /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
-                0x000000000800bd7c                __aeabi_frsub
-                0x000000000800bd84                __subsf3
-                0x000000000800bd84                __aeabi_fsub
-                0x000000000800bd88                __aeabi_fadd
-                0x000000000800bd88                __addsf3
-                0x000000000800bee8                __aeabi_ui2f
-                0x000000000800bee8                __floatunsisf
-                0x000000000800bef0                __aeabi_i2f
-                0x000000000800bef0                __floatsisf
-                0x000000000800bf0c                __floatundisf
-                0x000000000800bf0c                __aeabi_ul2f
-                0x000000000800bf1c                __floatdisf
-                0x000000000800bf1c                __aeabi_l2f
- .text          0x000000000800bf98      0x2a0 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
-                0x000000000800bf98                __mulsf3
-                0x000000000800bf98                __aeabi_fmul
-                0x000000000800c100                __divsf3
-                0x000000000800c100                __aeabi_fdiv
- .text          0x000000000800c238       0x4c /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixsfsi.o)
-                0x000000000800c238                __fixsfsi
-                0x000000000800c238                __aeabi_f2iz
- .text          0x000000000800c284       0x40 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
-                0x000000000800c284                __aeabi_f2uiz
-                0x000000000800c284                __fixunssfsi
- .text          0x000000000800c2c4       0x30 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_aeabi_uldivmod.o)
-                0x000000000800c2c4                __aeabi_uldivmod
- .text          0x000000000800c2f4      0x2c0 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x000000000800c2f4                __udivmoddi4
- .text          0x000000000800c5b4        0x4 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x000000000800c5b4                __aeabi_ldiv0
-                0x000000000800c5b4                __aeabi_idiv0
- .text          0x000000000800c5b8       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(close.o)
-                0x000000000800c5b8                _close
- .text          0x000000000800c5c8       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(fstat.o)
-                0x000000000800c5c8                _fstat
- .text          0x000000000800c5d8       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(getpid.o)
-                0x000000000800c5d8                _getpid
- .text          0x000000000800c5e8       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(isatty.o)
-                0x000000000800c5e8                _isatty
- .text          0x000000000800c5f8       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(kill.o)
-                0x000000000800c5f8                _kill
- .text          0x000000000800c608       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(lseek.o)
-                0x000000000800c608                _lseek
- .text          0x000000000800c618       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(read.o)
-                0x000000000800c618                _read
- .text          0x000000000800c628       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(write.o)
-                0x000000000800c628                _write
- .text          0x000000000800c638        0x4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(_exit.o)
-                0x000000000800c638                _exit
-                0x000000000800c63c                . = ALIGN (0x4)
+                0x0000000008004690       0xa0 libopencm3/lib/stm32/common/exti_common_all.stm32f1
+                0x0000000008004690                exti_select_source
+ .text          0x0000000008004730       0xec /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memcpy.o)
+                0x0000000008004730                memcpy
+ .text          0x000000000800481c       0xa4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memset.o)
+                0x000000000800481c                memset
+ .text          0x00000000080048c0      0x100 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-snprintf.o)
+                0x00000000080048c0                _snprintf_r
+                0x000000000800493c                snprintf
+ .text          0x00000000080049c0       0xbc /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strcpy.o)
+                0x00000000080049c0                strcpy
+ .text          0x0000000008004a7c       0x5c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strlen-stub.o)
+                0x0000000008004a7c                strlen
+ .text          0x0000000008004ad8     0x1498 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfprintf.o)
+                0x0000000008004ad8                _svfprintf_r
+ .text          0x0000000008005f70      0xff4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-dtoa.o)
+                0x000000000800609c                _dtoa_r
+ .text          0x0000000008006f64       0x14 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-localeconv.o)
+                0x0000000008006f64                __localeconv_l
+                0x0000000008006f68                _localeconv_r
+                0x0000000008006f70                localeconv
+ .text          0x0000000008006f78      0x54c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
+                0x0000000008006f78                _malloc_r
+ .text          0x00000000080074c4       0x90 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memchr-stub.o)
+                0x00000000080074c4                memchr
+ .text          0x0000000008007554        0x8 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mlock.o)
+                0x0000000008007554                __malloc_lock
+                0x0000000008007558                __malloc_unlock
+ .text          0x000000000800755c      0xa68 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mprec.o)
+                0x000000000800755c                _Balloc
+                0x00000000080075a8                _Bfree
+                0x00000000080075bc                __multadd
+                0x0000000008007660                __s2b
+                0x0000000008007714                __hi0bits
+                0x0000000008007754                __lo0bits
+                0x00000000080077ac                __i2b
+                0x0000000008007808                __multiply
+                0x0000000008007964                __pow5mult
+                0x0000000008007a1c                __lshift
+                0x0000000008007b08                __mcmp
+                0x0000000008007b48                __mdiff
+                0x0000000008007c94                __ulp
+                0x0000000008007cd8                __b2d
+                0x0000000008007da8                __d2b
+                0x0000000008007e6c                __ratio
+                0x0000000008007ecc                _mprec_log10
+                0x0000000008007f04                __copybits
+                0x0000000008007f64                __any_on
+ .text          0x0000000008007fc4      0xb7c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfiprintf.o)
+                0x0000000008007fc4                __ssprint_r
+                0x00000000080080c0                _svfiprintf_r
+ .text          0x0000000008008b40       0x4c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-assert.o)
+                0x0000000008008b40                __assert_func
+                0x0000000008008b80                __assert
+ .text          0x0000000008008b8c       0x60 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-callocr.o)
+                0x0000000008008b8c                _calloc_r
+ .text          0x0000000008008bec       0x44 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fiprintf.o)
+                0x0000000008008bec                _fiprintf_r
+                0x0000000008008c08                fiprintf
+ .text          0x0000000008008c30      0x2a0 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-freer.o)
+                0x0000000008008c30                _malloc_trim_r
+                0x0000000008008cd0                _free_r
+ .text          0x0000000008008ed0       0x8c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-locale.o)
+                0x0000000008008ed0                _setlocale_r
+                0x0000000008008f10                __locale_mb_cur_max
+                0x0000000008008f1c                setlocale
+ .text          0x0000000008008f5c       0x40 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mbtowc_r.o)
+                0x0000000008008f5c                _mbtowc_r
+                0x0000000008008f70                __ascii_mbtowc
+ .text          0x0000000008008f9c       0xf8 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memmove.o)
+                0x0000000008008f9c                memmove
+ .text          0x0000000008009094      0x3dc /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-reallocr.o)
+                0x0000000008009094                _realloc_r
+ .text          0x0000000008009470      0x1bc /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strcmp.o)
+                0x0000000008009470                strcmp
+ .text          0x000000000800962c      0xd48 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-vfiprintf.o)
+                0x00000000080096a4                __sprint_r
+                0x00000000080096b8                _vfiprintf_r
+                0x000000000800a2ec                vfiprintf
+ .text          0x000000000800a374       0x30 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wctomb_r.o)
+                0x000000000800a374                _wctomb_r
+                0x000000000800a388                __ascii_wctomb
+ .text          0x000000000800a3a4       0xd4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wsetup.o)
+                0x000000000800a3a4                __swsetup_r
+ .text          0x000000000800a478       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-abort.o)
+                0x000000000800a478                abort
+ .text          0x000000000800a488      0x1a0 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fflush.o)
+                0x000000000800a488                __sflush_r
+                0x000000000800a5ac                _fflush_r
+                0x000000000800a5d8                fflush
+ .text          0x000000000800a628      0x214 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-findfp.o)
+                0x000000000800a62c                _cleanup_r
+                0x000000000800a710                __sfmoreglue
+                0x000000000800a740                __sfp
+                0x000000000800a7e8                _cleanup
+                0x000000000800a7fc                __sinit
+                0x000000000800a804                __sfp_lock_acquire
+                0x000000000800a808                __sfp_lock_release
+                0x000000000800a80c                __sinit_lock_acquire
+                0x000000000800a810                __sinit_lock_release
+                0x000000000800a814                __fp_lock_all
+                0x000000000800a828                __fp_unlock_all
+ .text          0x000000000800a83c      0x104 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fputwc.o)
+                0x000000000800a83c                __fputwc
+                0x000000000800a8dc                _fputwc_r
+                0x000000000800a900                fputwc
+ .text          0x000000000800a940      0x2f0 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fvwrite.o)
+                0x000000000800a940                __sfvwrite_r
+ .text          0x000000000800ac30       0x88 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fwalk.o)
+                0x000000000800ac30                _fwalk
+                0x000000000800ac70                _fwalk_reent
+ .text          0x000000000800acb8      0x140 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-makebuf.o)
+                0x000000000800acb8                __smakebuf_r
+                0x000000000800ad98                __swhatbuf_r
+ .text          0x000000000800adf8      0x28c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signal.o)
+                0x000000000800adf8                _init_signal_r
+                0x000000000800ae28                _signal_r
+                0x000000000800ae74                _raise_r
+                0x000000000800aecc                __sigtramp_r
+                0x000000000800af34                raise
+                0x000000000800af90                signal
+                0x000000000800afe4                _init_signal
+                0x000000000800b01c                __sigtramp
+ .text          0x000000000800b084       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signalr.o)
+                0x000000000800b084                _kill_r
+                0x000000000800b0ac                _getpid_r
+ .text          0x000000000800b0b0       0x90 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-stdio.o)
+                0x000000000800b0b0                __sread
+                0x000000000800b0d4                __seofread
+                0x000000000800b0d8                __swrite
+                0x000000000800b118                __sseek
+                0x000000000800b138                __sclose
+ .text          0x000000000800b140       0xc4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wbuf.o)
+                0x000000000800b140                __swbuf_r
+                0x000000000800b1f0                __swbuf
+ .text          0x000000000800b204       0x88 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-wcrtomb.o)
+                0x000000000800b204                _wcrtomb_r
+                0x000000000800b240                wcrtomb
+ .text          0x000000000800b28c       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-writer.o)
+                0x000000000800b28c                _write_r
+ .text          0x000000000800b2b8       0x24 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-closer.o)
+                0x000000000800b2b8                _close_r
+ .text          0x000000000800b2dc       0xd4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fclose.o)
+                0x000000000800b340                _fclose_r
+                0x000000000800b374                fclose
+ .text          0x000000000800b3b0       0x28 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-fstatr.o)
+                0x000000000800b3b0                _fstat_r
+ .text          0x000000000800b3d8       0x24 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-isattyr.o)
+                0x000000000800b3d8                _isatty_r
+ .text          0x000000000800b3fc       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lseekr.o)
+                0x000000000800b3fc                _lseek_r
+ .text          0x000000000800b428       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-readr.o)
+                0x000000000800b428                _read_r
+ .text          0x000000000800b454      0x378 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+                0x000000000800b454                __aeabi_drsub
+                0x000000000800b45c                __aeabi_dsub
+                0x000000000800b45c                __subdf3
+                0x000000000800b460                __adddf3
+                0x000000000800b460                __aeabi_dadd
+                0x000000000800b6d8                __aeabi_ui2d
+                0x000000000800b6d8                __floatunsidf
+                0x000000000800b6f8                __floatsidf
+                0x000000000800b6f8                __aeabi_i2d
+                0x000000000800b71c                __extendsfdf2
+                0x000000000800b71c                __aeabi_f2d
+                0x000000000800b760                __aeabi_ul2d
+                0x000000000800b760                __floatundidf
+                0x000000000800b770                __floatdidf
+                0x000000000800b770                __aeabi_l2d
+ .text          0x000000000800b7cc      0x424 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+                0x000000000800b7cc                __aeabi_dmul
+                0x000000000800b7cc                __muldf3
+                0x000000000800ba20                __aeabi_ddiv
+                0x000000000800ba20                __divdf3
+ .text          0x000000000800bbf0      0x110 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpdf2.o)
+                0x000000000800bbf0                __gtdf2
+                0x000000000800bbf0                __gedf2
+                0x000000000800bbf8                __ltdf2
+                0x000000000800bbf8                __ledf2
+                0x000000000800bc00                __cmpdf2
+                0x000000000800bc00                __eqdf2
+                0x000000000800bc00                __nedf2
+                0x000000000800bc7c                __aeabi_cdrcmple
+                0x000000000800bc8c                __aeabi_cdcmple
+                0x000000000800bc8c                __aeabi_cdcmpeq
+                0x000000000800bc9c                __aeabi_dcmpeq
+                0x000000000800bcb0                __aeabi_dcmplt
+                0x000000000800bcc4                __aeabi_dcmple
+                0x000000000800bcd8                __aeabi_dcmpge
+                0x000000000800bcec                __aeabi_dcmpgt
+ .text          0x000000000800bd00       0x2c /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_unorddf2.o)
+                0x000000000800bd00                __aeabi_dcmpun
+                0x000000000800bd00                __unorddf2
+ .text          0x000000000800bd2c       0x50 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixdfsi.o)
+                0x000000000800bd2c                __fixdfsi
+                0x000000000800bd2c                __aeabi_d2iz
+ .text          0x000000000800bd7c       0x40 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunsdfsi.o)
+                0x000000000800bd7c                __fixunsdfsi
+                0x000000000800bd7c                __aeabi_d2uiz
+ .text          0x000000000800bdbc      0x21c /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
+                0x000000000800bdbc                __aeabi_frsub
+                0x000000000800bdc4                __subsf3
+                0x000000000800bdc4                __aeabi_fsub
+                0x000000000800bdc8                __aeabi_fadd
+                0x000000000800bdc8                __addsf3
+                0x000000000800bf28                __aeabi_ui2f
+                0x000000000800bf28                __floatunsisf
+                0x000000000800bf30                __aeabi_i2f
+                0x000000000800bf30                __floatsisf
+                0x000000000800bf4c                __floatundisf
+                0x000000000800bf4c                __aeabi_ul2f
+                0x000000000800bf5c                __floatdisf
+                0x000000000800bf5c                __aeabi_l2f
+ .text          0x000000000800bfd8      0x2a0 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
+                0x000000000800bfd8                __mulsf3
+                0x000000000800bfd8                __aeabi_fmul
+                0x000000000800c140                __divsf3
+                0x000000000800c140                __aeabi_fdiv
+ .text          0x000000000800c278       0x4c /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixsfsi.o)
+                0x000000000800c278                __fixsfsi
+                0x000000000800c278                __aeabi_f2iz
+ .text          0x000000000800c2c4       0x40 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
+                0x000000000800c2c4                __aeabi_f2uiz
+                0x000000000800c2c4                __fixunssfsi
+ .text          0x000000000800c304       0x30 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x000000000800c304                __aeabi_uldivmod
+ .text          0x000000000800c334      0x2c0 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x000000000800c334                __udivmoddi4
+ .text          0x000000000800c5f4        0x4 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x000000000800c5f4                __aeabi_ldiv0
+                0x000000000800c5f4                __aeabi_idiv0
+ .text          0x000000000800c5f8       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(close.o)
+                0x000000000800c5f8                _close
+ .text          0x000000000800c608       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(fstat.o)
+                0x000000000800c608                _fstat
+ .text          0x000000000800c618       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(getpid.o)
+                0x000000000800c618                _getpid
+ .text          0x000000000800c628       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(isatty.o)
+                0x000000000800c628                _isatty
+ .text          0x000000000800c638       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(kill.o)
+                0x000000000800c638                _kill
+ .text          0x000000000800c648       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(lseek.o)
+                0x000000000800c648                _lseek
+ .text          0x000000000800c658       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(read.o)
+                0x000000000800c658                _read
+ .text          0x000000000800c668       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(write.o)
+                0x000000000800c668                _write
+ .text          0x000000000800c678        0x4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(_exit.o)
+                0x000000000800c678                _exit
+                0x000000000800c67c                . = ALIGN (0x4)
  *(.rodata*)
  .rodata.clr_rscreen.str1.1
-                0x000000000800c63c        0x5 main.vo
+                0x000000000800c67c        0x5 main.vo
  .rodata.print_line.str1.1
-                0x000000000800c641       0x17 main.vo
+                0x000000000800c681       0x17 main.vo
  .rodata.clr_screen.str1.1
-                0x000000000800c658        0x5 main.vo
+                0x000000000800c698        0x5 main.vo
  .rodata.print_sniffer.str1.1
-                0x000000000800c65d       0x85 main.vo
+                0x000000000800c69d       0x85 main.vo
                                          0x96 (size before relaxing)
  .rodata.print_debug.str1.1
-                0x000000000800c6e2      0x24f main.vo
+                0x000000000800c722      0x24f main.vo
                                         0x252 (size before relaxing)
  .rodata.main.str1.1
-                0x000000000800c931        0x7 main.vo
+                0x000000000800c971        0x7 main.vo
  .rodata.str1.1
-                0x000000000800c938       0xa7 main.vo
- *fill*         0x000000000800c9df        0x1 
+                0x000000000800c978       0xa7 main.vo
+ *fill*         0x000000000800ca1f        0x1 
  .rodata.CSWTCH.48
-                0x000000000800c9e0       0x20 main.vo
+                0x000000000800ca20       0x20 main.vo
  .rodata.CSWTCH.47
-                0x000000000800ca00       0x10 main.vo
+                0x000000000800ca40       0x10 main.vo
  .rodata.CSWTCH.46
-                0x000000000800ca10       0x1c main.vo
+                0x000000000800ca50       0x1c main.vo
  .rodata.canbox_cmd_process.str1.1
-                0x000000000800ca2c       0x11 canbox.vo
- .rodata        0x000000000800ca3d       0x1b canbox.vo
+                0x000000000800ca6c       0x11 canbox.vo
+ .rodata        0x000000000800ca7d       0x1b canbox.vo
  .rodata.speeds
-                0x000000000800ca58       0x50 volvo_od2/fw/hw_can.vo
+                0x000000000800ca98       0x50 volvo_od2/fw/hw_can.vo
  .rodata.str1.4
-                0x000000000800caa8       0x42 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfprintf.o)
- *fill*         0x000000000800caea        0x2 
- .rodata        0x000000000800caec       0x20 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfprintf.o)
+                0x000000000800cae8       0x42 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfprintf.o)
+ *fill*         0x000000000800cb2a        0x2 
+ .rodata        0x000000000800cb2c       0x20 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfprintf.o)
  .rodata.str1.4
-                0x000000000800cb0c       0x56 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-dtoa.o)
+                0x000000000800cb4c       0x56 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-dtoa.o)
                                          0x5a (size before relaxing)
- *fill*         0x000000000800cb62        0x2 
- .rodata        0x000000000800cb64        0x4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-impure.o)
-                0x000000000800cb64                _global_impure_ptr
+ *fill*         0x000000000800cba2        0x2 
+ .rodata        0x000000000800cba4        0x4 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-impure.o)
+                0x000000000800cba4                _global_impure_ptr
  .rodata.str1.4
-                0x000000000800cb68       0x33 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mprec.o)
+                0x000000000800cba8       0x33 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mprec.o)
                                          0x47 (size before relaxing)
- *fill*         0x000000000800cb9b        0x5 
- .rodata        0x000000000800cba0      0x128 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mprec.o)
-                0x000000000800cbb0                __mprec_tens
-                0x000000000800cc78                __mprec_tinytens
-                0x000000000800cca0                __mprec_bigtens
+ *fill*         0x000000000800cbdb        0x5 
+ .rodata        0x000000000800cbe0      0x128 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mprec.o)
+                0x000000000800cbf0                __mprec_tens
+                0x000000000800ccb8                __mprec_tinytens
+                0x000000000800cce0                __mprec_bigtens
  .rodata.str1.4
-                0x000000000800ccc8       0x2f /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfiprintf.o)
- .rodata        0x000000000800ccc8       0x20 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfiprintf.o)
+                0x000000000800cd08       0x2f /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfiprintf.o)
+ .rodata        0x000000000800cd08       0x20 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-svfiprintf.o)
  .rodata.str1.4
-                0x000000000800cce8       0x3f /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-assert.o)
+                0x000000000800cd28       0x3f /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-assert.o)
                                          0x43 (size before relaxing)
- *fill*         0x000000000800cd27        0x1 
+ *fill*         0x000000000800cd67        0x1 
  .rodata.str1.4
-                0x000000000800cd28        0xe /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-locale.o)
+                0x000000000800cd68        0xe /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-locale.o)
                                          0x12 (size before relaxing)
  .rodata.str1.4
-                0x000000000800cd36       0x2f /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-vfiprintf.o)
- *fill*         0x000000000800cd36        0x2 
- .rodata        0x000000000800cd38       0x20 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-vfiprintf.o)
- .rodata        0x000000000800cd58      0x101 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-ctype_.o)
-                0x000000000800cd58                _ctype_
-                0x000000000800ce5c                . = ALIGN (0x4)
- *fill*         0x000000000800ce59        0x3 
+                0x000000000800cd76       0x2f /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-vfiprintf.o)
+ *fill*         0x000000000800cd76        0x2 
+ .rodata        0x000000000800cd78       0x20 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-vfiprintf.o)
+ .rodata        0x000000000800cd98      0x101 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-ctype_.o)
+                0x000000000800cd98                _ctype_
+                0x000000000800ce9c                . = ALIGN (0x4)
+ *fill*         0x000000000800ce99        0x3 
 
-.glue_7         0x000000000800ce5c        0x0
- .glue_7        0x000000000800ce5c        0x0 linker stubs
+.glue_7         0x000000000800ce9c        0x0
+ .glue_7        0x000000000800ce9c        0x0 linker stubs
 
-.glue_7t        0x000000000800ce5c        0x0
- .glue_7t       0x000000000800ce5c        0x0 linker stubs
+.glue_7t        0x000000000800ce9c        0x0
+ .glue_7t       0x000000000800ce9c        0x0 linker stubs
 
-.vfp11_veneer   0x000000000800ce5c        0x0
- .vfp11_veneer  0x000000000800ce5c        0x0 linker stubs
+.vfp11_veneer   0x000000000800ce9c        0x0
+ .vfp11_veneer  0x000000000800ce9c        0x0 linker stubs
 
-.v4_bx          0x000000000800ce5c        0x0
- .v4_bx         0x000000000800ce5c        0x0 linker stubs
+.v4_bx          0x000000000800ce9c        0x0
+ .v4_bx         0x000000000800ce9c        0x0 linker stubs
 
-.iplt           0x000000000800ce5c        0x0
- .iplt          0x000000000800ce5c        0x0 main.vo
+.iplt           0x000000000800ce9c        0x0
+ .iplt          0x000000000800ce9c        0x0 main.vo
 
-.preinit_array  0x000000000800ce5c        0x0
-                0x000000000800ce5c                . = ALIGN (0x4)
-                0x000000000800ce5c                __preinit_array_start = .
+.preinit_array  0x000000000800ce9c        0x0
+                0x000000000800ce9c                . = ALIGN (0x4)
+                0x000000000800ce9c                __preinit_array_start = .
  *(.preinit_array)
-                0x000000000800ce5c                __preinit_array_end = .
+                0x000000000800ce9c                __preinit_array_end = .
 
-.init_array     0x000000000800ce5c        0x0
-                0x000000000800ce5c                . = ALIGN (0x4)
-                0x000000000800ce5c                __init_array_start = .
+.init_array     0x000000000800ce9c        0x0
+                0x000000000800ce9c                . = ALIGN (0x4)
+                0x000000000800ce9c                __init_array_start = .
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x000000000800ce5c                __init_array_end = .
+                0x000000000800ce9c                __init_array_end = .
 
-.fini_array     0x000000000800ce5c        0x0
-                0x000000000800ce5c                . = ALIGN (0x4)
-                0x000000000800ce5c                __fini_array_start = .
+.fini_array     0x000000000800ce9c        0x0
+                0x000000000800ce9c                . = ALIGN (0x4)
+                0x000000000800ce9c                __fini_array_start = .
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
-                0x000000000800ce5c                __fini_array_end = .
+                0x000000000800ce9c                __fini_array_end = .
 
 .ARM.extab
  *(.ARM.extab*)
 
-.ARM.exidx      0x000000000800ce5c        0x8
-                0x000000000800ce5c                __exidx_start = .
+.ARM.exidx      0x000000000800ce9c        0x8
+                0x000000000800ce9c                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x000000000800ce5c        0x8 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x000000000800ce64                __exidx_end = .
+ .ARM.exidx     0x000000000800ce9c        0x8 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x000000000800cea4                __exidx_end = .
 
-.rel.dyn        0x000000000800ce64        0x0
- .rel.iplt      0x000000000800ce64        0x0 main.vo
-                0x000000000800ce64                . = ALIGN (0x4)
-                0x000000000800ce64                _etext = .
+.rel.dyn        0x000000000800cea4        0x0
+ .rel.iplt      0x000000000800cea4        0x0 main.vo
+                0x000000000800cea4                . = ALIGN (0x4)
+                0x000000000800cea4                _etext = .
 
-.data           0x0000000020000000     0x1414 load address 0x000000000800ce64
+.data           0x0000000020000000     0x1414 load address 0x000000000800cea4
                 0x0000000020000000                _data = .
  *(.data*)
  .data.max_show_sniff_num
@@ -1964,12 +1964,12 @@ END GROUP
                 0x00000000200012a8                __global_locale
                 0x0000000020001414                . = ALIGN (0x4)
                 0x0000000020001414                _edata = .
-                0x000000000800ce64                _data_loadaddr = LOADADDR (.data)
+                0x000000000800cea4                _data_loadaddr = LOADADDR (.data)
 
-.igot.plt       0x0000000020001414        0x0 load address 0x000000000800e278
+.igot.plt       0x0000000020001414        0x0 load address 0x000000000800e2b8
  .igot.plt      0x0000000020001414        0x0 main.vo
 
-.bss            0x0000000020001414      0x2c4 load address 0x000000000800e278
+.bss            0x0000000020001414      0x2c4 load address 0x000000000800e2b8
  *(.bss*)
  .bss.wakeups   0x0000000020001414        0x4 main.vo
                 0x0000000020001414                wakeups
