@@ -167,7 +167,7 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	key_state.key_next = key_next;
 
 	//PICKUP
-	uint8_t key_pickup = (msg[7] >> 3) & 0x01;
+	uint8_t key_pickup = (msg[7] >> 4) & 0x01;
 	//1->0 short release
 	if ((key_state.key_pickup== 1) && (key_pickup == 0) && key_state.key_cb && key_state.key_cb->pickup)
 		key_state.key_cb->pickup();
@@ -175,7 +175,7 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	key_state.key_pickup = key_pickup;
 
 	//HANGUP
-	uint8_t key_hangup = (msg[7] >> 4) & 0x01;
+	uint8_t key_hangup = (msg[7] >> 5) & 0x01;
 	//1->0 short release
 	if ((key_state.key_hangup == 1) && (key_hangup == 0) && key_state.key_cb && key_state.key_cb->hangup)
 		key_state.key_cb->hangup();
