@@ -174,7 +174,7 @@ static void xc90_2007my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * 
 	
 	key_state.key_pickup = key_pickup;
 
-	//HANGUP
+	//HANGUP 
 	uint8_t key_hangup = (msg[7] >> 5) & 0x01;
 	//1->0 short release
 	if ((key_state.key_hangup == 1) && (key_hangup == 0) && key_state.key_cb && key_state.key_cb->hangup)
@@ -251,14 +251,14 @@ static void xc90_2007my_ms_acc_handler(const uint8_t * msg, struct msg_desc_t * 
 		carstate.ign = 0;
 }
 
-static void xc90_2007my_ms_temp_handler(const uint8_t * msg, struct msg_desc_t * desc){
+static void xc90_2007my_ms_ccm_handler(const uint8_t * msg, struct msg_desc_t * desc){
     // transformation function dec(X) * 0.75 -48
 	if (is_timeout(desc)) {
 		carstate.temp = 0;
 		return;
 	}
-	
-	carstate.temp = (int16_t)((int8_t) msg[6] * 0.75) - 48;
+
+	carstate.temp = (int16_t)((int8_t) msg[6] * 0.75) - 48; // cabin temperature
 
 }
 
@@ -275,15 +275,6 @@ struct msg_desc_t xc90_2007my_ms[] =
 	{ 0x2803008, 60, 0, 0, xc90_2007my_ms_lsm1_handler },
 	{ 0x3200428, 90, 0, 0, xc90_2007my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2007my_ms_acc_handler },
-	// other codes
-	{ 0x617ff8, 20, 0, 0, xc90_2007my_ms_lsm0_handler },
-	{ 0x404066, 25, 0, 0, xc90_2007my_ms_swm_handler },
-	{ 0x1e0522e, 45, 0, 0, xc90_2007my_ms_rem_handler },
-	{ 0x2510000, 80, 0, 0, xc90_2007my_ms_wheel_handler },
-	//{ 0x2803008, 60, 0, 0, xc90_2007my_ms_lsm1_handler }, // brightness 'not found'
-	{ 0x3200408, 90, 0, 0, xc90_2007my_ms_gear_handler },
-	{ 0x00e00442, 1000, 0, 0, xc90_2007my_ms_temp_handler },
-	//{ 0x2006428, 120, 0, 0, xc90_2007my_ms_acc_handler }, // acc state 'not found'
-
+	{ 0x4200002, 1000, 0, 0, xc90_2007my_ms_ccm_handler } //-> CCM
 };
 
