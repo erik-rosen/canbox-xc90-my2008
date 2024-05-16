@@ -260,11 +260,11 @@ static void xc90_2007my_ms_ccm_handler(const uint8_t * msg, struct msg_desc_t * 
 		return;
 	}
 
-	carstate.temp = (int16_t)((int8_t) msg[6] * 0.75) - 48; // cabin temperature
+	carstate.temp = (msg[6] * 0.75 - 48)+0.5f; // cabin temperature
     //car_air_state.ac_max = 
 	// fan speed 00 to 86, 12 step -> 0 to 7 
-	car_air_state.fanspeed = (uint8_t) ( msg[7]* 0.052239 + 0.5f);
-	car_air_state.recycling = (msg[1] & 0x68) ? 1 : 0;
+	car_air_state.fanspeed = (uint8_t) ( msg[7]* 0.129630 + 0.5f);
+	car_air_state.recycling = (msg[1] == 0x68) ? 1 : 0;
 }
 
 
