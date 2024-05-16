@@ -789,18 +789,18 @@ END GROUP
  .text.canbox_mici
                 0x00000000000016a6       0x38 canbox.vwo
                 0x00000000000016a6                canbox_mici
- .text.canbox_nav_enter
-                0x00000000000016de       0x38 canbox.vwo
-                0x00000000000016de                canbox_nav_enter
  .text.canbox_pickup
-                0x0000000000001716        0x8 canbox.vwo
-                0x0000000000001716                canbox_pickup
- .text.canbox_nav_back
-                0x000000000000171e       0x38 canbox.vwo
-                0x000000000000171e                canbox_nav_back
+                0x00000000000016de        0x8 canbox.vwo
+                0x00000000000016de                canbox_pickup
  .text.canbox_hangup
-                0x0000000000001756        0x8 canbox.vwo
-                0x0000000000001756                canbox_hangup
+                0x00000000000016e6        0x8 canbox.vwo
+                0x00000000000016e6                canbox_hangup
+ .text.canbox_nav_enter
+                0x00000000000016ee       0x38 canbox.vwo
+                0x00000000000016ee                canbox_nav_enter
+ .text.canbox_nav_back
+                0x0000000000001726       0x38 canbox.vwo
+                0x0000000000001726                canbox_nav_back
  .text.canbox_nav_up
                 0x000000000000175e        0x8 canbox.vwo
                 0x000000000000175e                canbox_nav_up

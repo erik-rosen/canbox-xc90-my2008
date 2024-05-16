@@ -889,18 +889,18 @@ END GROUP
  .text.canbox_mici
                 0x0000000008001772       0x3a canbox.qemu
                 0x0000000008001772                canbox_mici
- .text.canbox_nav_enter
-                0x00000000080017ac       0x3a canbox.qemu
-                0x00000000080017ac                canbox_nav_enter
  .text.canbox_pickup
-                0x00000000080017e6        0x4 canbox.qemu
-                0x00000000080017e6                canbox_pickup
- .text.canbox_nav_back
-                0x00000000080017ea       0x3a canbox.qemu
-                0x00000000080017ea                canbox_nav_back
+                0x00000000080017ac        0x4 canbox.qemu
+                0x00000000080017ac                canbox_pickup
  .text.canbox_hangup
-                0x0000000008001824        0x4 canbox.qemu
-                0x0000000008001824                canbox_hangup
+                0x00000000080017b0        0x4 canbox.qemu
+                0x00000000080017b0                canbox_hangup
+ .text.canbox_nav_enter
+                0x00000000080017b4       0x3a canbox.qemu
+                0x00000000080017b4                canbox_nav_enter
+ .text.canbox_nav_back
+                0x00000000080017ee       0x3a canbox.qemu
+                0x00000000080017ee                canbox_nav_back
  .text.canbox_nav_up
                 0x0000000008001828        0x4 canbox.qemu
                 0x0000000008001828                canbox_nav_up

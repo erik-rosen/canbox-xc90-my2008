@@ -522,14 +522,12 @@ void canbox_mici(void)
 
 void canbox_pickup(void)
 {
-	canbox_nav_enter();
-	//canbox_cont(); // -> this must be hangup, with bluetooth connected
+	canbox_cont(); // -> this must be hangup, with bluetooth connected
 }
 
 void canbox_hangup(void)
 {
-	canbox_nav_back();
-	//canbox_mode(); // -> this must be hangup , with bluetooth connected
+	canbox_mode();// -> this must be hangup , with bluetooth connected
 }
 
 
