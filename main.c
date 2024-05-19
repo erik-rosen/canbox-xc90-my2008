@@ -401,9 +401,6 @@ void print_debug(void)
 		radar.rl, radar.rlm, radar.rrm, radar.rr);
 	hw_usart_write(hw_usart_get(), (uint8_t *)buf, strlen(buf));
 
-	snprintf(buf, sizeof(buf), "Temp:%d \r\n", temp);
-	hw_usart_write(hw_usart_get(), (uint8_t *)buf, strlen(buf));
-
 
 	//uint32_t rx_ovr = hw_usart_get_rx_overflow(hw_usart_get());
 	//uint32_t tx_ovr = hw_usart_get_tx_overflow(hw_usart_get());

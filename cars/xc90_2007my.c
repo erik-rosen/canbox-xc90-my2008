@@ -252,20 +252,24 @@ static void xc90_2007my_ms_acc_handler(const uint8_t * msg, struct msg_desc_t * 
 }
 
 static void xc90_2007my_ms_ccm_handler(const uint8_t * msg, struct msg_desc_t * desc){
-    // transformation function dec(X) * 0.75 -48
 	if (is_timeout(desc)) {
 		carstate.temp = STATE_UNDEF;
 		car_air_state.fanspeed = STATE_UNDEF;
 		car_air_state.recycling = STATE_UNDEF;
+		car_air_state.powerfull = STATE_UNDEF;
+		car_air_state.ac = STATE_UNDEF;
 		return;
 	}
+	uint8_t fanspeed= ((msg[7] & 0xf0) >> 4);
 
 	carstate.temp = (msg[6] * 0.75 - 48)+0.5f; // cabin temperature
-    //car_air_state.ac_max = 
-	// fan speed 00 to 86, 12 step -> 0 to 7 
-	car_air_state.fanspeed = (uint8_t) ( msg[7]* 0.129630 + 0.5f);
-	car_air_state.recycling = (msg[1] == 0x68) ? 1 : 0;
+	car_air_state.fanspeed = (fanspeed > 0x07? 0x7 : fanspeed) * 2 + 2;
+	car_air_state.powerfull = fanspeed > 0x07 ? 1 : 0;
+	car_air_state.recycling = (msg[1] == 0x64) ? 1 : 0;
+	car_air_state.ac = msg[1] != 0x00 && msg[1] != 0x64 ? 1 : 0;
 }
+
+
 
 
 
@@ -280,6 +284,6 @@ struct msg_desc_t xc90_2007my_ms[] =
 	{ 0x2803008, 60, 0, 0, xc90_2007my_ms_lsm1_handler },
 	{ 0x3200428, 90, 0, 0, xc90_2007my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2007my_ms_acc_handler },
-	{ 0x4200002, 1000, 0, 0, xc90_2007my_ms_ccm_handler } //-> CCM
+	{ 0x4200002, 300, 0, 0, xc90_2007my_ms_ccm_handler }, //-> CCM
 };
 
