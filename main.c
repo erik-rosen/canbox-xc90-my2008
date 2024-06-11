@@ -274,7 +274,7 @@ void print_debug(void)
 	uint8_t park_lights = car_get_park_lights();
 	uint8_t near_lights = car_get_near_lights();
 	uint8_t ill = car_get_illum();
-	int16_t temp = car_get_temp();
+	//int16_t temp = car_get_temp();
 
 	clr_rscreen();
 

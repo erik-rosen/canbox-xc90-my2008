@@ -284,6 +284,34 @@ struct msg_desc_t xc90_2007my_ms[] =
 	{ 0x2803008, 60, 0, 0, xc90_2007my_ms_lsm1_handler },
 	{ 0x3200428, 90, 0, 0, xc90_2007my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2007my_ms_acc_handler },
-	{ 0x4200002, 300, 0, 0, xc90_2007my_ms_ccm_handler }, //-> CCM
+	//{ 0x4200002, 300, 0, 0, xc90_2007my_ms_ccm_handler }, //-> CCM disabled for now
 };
 
+/*
+
+14034a2x	Rx	d	8	00	5B	40	04	89	22	04	00	Length
+
+Folding mirror in and out, button in CCM bytes[4]
+
+89 rest position   00 5B 80 04 8F 00 04 00 --> Basic state
+
+D9 Fold up the mirror     00 5B 80 04 DF 00 04 00 -->Hide
+
+E9 Unfold mirror  00 5B 80 04 EF 00 04 00 --> Expand  
+
+info is likely the high part
+
+
+#define STEERING_WHEEL_MODULE 0x0131726C // CORRECT
+#define CEM 0x00217FFC // CORRECT
+#define AMBIENT_LIGHT 0x02803008 // CORRECT
+#define DEM 0x014034A2 // CORRECT
+#define GEARBOX 0x12173BE // CORRECT, could be parking sensor module instead of gearbox
+#define CENTRAL_LOCK 0x01601422 // Likely correct
+#define AEM 0x0141726C //tbd
+#define REM 0x00800401 //tbd
+#define RTI_DPAD 0x014034A2 //tbd
+#define CLIMATE_MODULE 0x00217FFC //tbd
+#define BRAKE_PEDAL 0x0381526C //tbd
+
+*/

@@ -522,12 +522,24 @@ void canbox_mici(void)
 
 void canbox_pickup(void)
 {
-	canbox_cont(); // -> this must be hangup, with bluetooth connected
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		uint8_t buf[] = { 0x07, 0x01 }; // PICK UP / HANG UP / CHANGE SRC
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
 }
 
 void canbox_hangup(void)
 {
-	canbox_mode();// -> this must be hangup , with bluetooth connected
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+		uint8_t buf[] = { 0x08, 0x01 }; // SPEECH
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
 }
 
 
@@ -556,23 +568,23 @@ void canbox_nav_back(void)
 
 void canbox_nav_up(void)
 {
-	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x0C, 0x01 };
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+	// if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+	// 	uint8_t buf[] = { 0x0C, 0x01 };
+	// 	snd_canbox_msg(0x20, buf, sizeof(buf));
 
-		buf[1] = 0x00;
-		snd_canbox_msg(0x20, buf, sizeof(buf));
-	}
+	// 	buf[1] = 0x00;
+	// 	snd_canbox_msg(0x20, buf, sizeof(buf));
+	// }
 }
 
 void canbox_nav_down(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x16, 0x01 };
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+		// uint8_t buf[] = { 0x16, 0x01 };
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
 
-		buf[1] = 0x00;
-		snd_canbox_msg(0x20, buf, sizeof(buf));
+		// buf[1] = 0x00;
+		// snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 
