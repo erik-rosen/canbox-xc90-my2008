@@ -7,6 +7,7 @@
 #define USE_LR2_2007MY
 #define USE_LR2_2013MY
 #define USE_XC90_2007MY
+#define USE_XC90_2008MY
 #define USE_SKODA_FABIA
 #define USE_Q3_2015
 #define USE_TOYOTA_PREMIO_26X
@@ -214,6 +215,10 @@ uint8_t is_timeout(struct msg_desc_t * desc)
 #include "cars/xc90_2007my.c"
 #endif
 
+#ifdef USE_XC90_2008MY
+#include "cars/xc90_2008my.c"
+#endif
+
 #ifdef USE_SKODA_FABIA
 #include "cars/skoda_fabia.c"
 #endif
@@ -349,6 +354,11 @@ void car_process(uint8_t ticks)
 		case e_car_xc90_2007my:
 #ifdef USE_XC90_2007MY
 			in_process(can, ticks, xc90_2007my_ms, sizeof(xc90_2007my_ms)/sizeof(xc90_2007my_ms[0]));
+#endif
+			break;
+		case e_car_xc90_2008my:
+#ifdef USE_XC90_2008MY
+			in_process(can, ticks, xc90_2008my_ms, sizeof(xc90_2008my_ms)/sizeof(xc90_2008my_ms[0]));
 #endif
 			break;
 		case e_car_skoda_fabia:
