@@ -9,14 +9,12 @@ COMMON_LDFLAGS=--static -lc -lm -Wl,--cref -Wl,--gc-sections #-Wl,--print-gc-sec
 
 PHONY:all
 
-all: vw_nc03.bin volvo_xc90_2007my_od2.bin volvo_xc90_2008my_od2.bin qemu.bin
+all: vw_nc03.bin volvo_od2.bin qemu.bin
 
 include Makefile_stm32f1
-include Makefile_volvo_xc90_2007my_od2
-include Makefile_volvo_xc90_2008my_od2
+include Makefile_volvo_od2
 include Makefile_vw_nc03
 include Makefile_qemu
 
 clean:
 	rm -rf *.bin *.map $(NUC131_BSP_OBJS) $(VW_NC03_OBJS) *.vwo $(LIBOPENCM3_OBJS) $(VOLVO_OD2_OBJS) *.vo $(QEMU_OBJS) *.qemu *.d *.elf
-
