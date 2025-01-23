@@ -104,14 +104,15 @@ static void xc90_2008my_ms_rem_handler(const uint8_t * msg, struct msg_desc_t * 
 		on = 0x0;
 
 	carstate.radar.state = on ? e_radar_on : e_radar_off;
-	carstate.radar.fl = v;
-	carstate.radar.flm = v;
-	carstate.radar.frm = v;
-	carstate.radar.fr = v;
 	carstate.radar.rl = v;
 	carstate.radar.rlm = v;
 	carstate.radar.rrm = v;
 	carstate.radar.rr = v;
+	//No front radar on my MY2008
+	carstate.radar.fl = 0;
+	carstate.radar.flm = 0;
+	carstate.radar.frm = 0;
+	carstate.radar.fr = 0;
 }
 
 static void xc90_2008my_ms_swm_handler(const uint8_t * msg, struct msg_desc_t * desc)

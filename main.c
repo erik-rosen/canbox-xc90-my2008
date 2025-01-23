@@ -330,7 +330,9 @@ void print_debug(void)
 		case e_cb_hiworld_vw_mqb:
 			scb = "HiWorld VW(MQB)";
 			break;
-
+		case e_cb_raise_toyota:
+			scb = "Raise TOYOTA";
+			break;
 		default:
 			break;
 	}
@@ -470,7 +472,10 @@ int main(void)
 {
 	hw_setup();
 
-	conf_read();
+	//const char hello[] = "HW setup done!";
+	//hw_usart_write(hw_usart_get(), (uint8_t *)hello, sizeof(hello));
+
+	//conf_read();
 
 	car_init(conf_get_car(), &key_cb);
 

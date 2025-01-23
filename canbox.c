@@ -62,6 +62,52 @@ static void snd_canbox_msg(uint8_t type, uint8_t * msg, uint8_t size)
  * | RAISE |
  * +-------+
  */
+void canbox_raise_toyota_radar_process(uint8_t fmax[4], uint8_t rmax[4])
+{
+	struct radar_t radar;
+	car_get_radar(&radar);
+	if (radar.state == e_radar_undef)
+		return;
+
+	uint8_t _park_is_on = (e_radar_on == radar.state) ? 1 : 0;
+	static uint8_t park_is_on = 0;
+
+	if (park_is_on != _park_is_on || park_is_on) {
+
+		park_is_on = _park_is_on;
+
+		uint8_t b = park_is_on ? 0x02 : 0x00; 
+		//snd_canbox_msg(0x25, &b, sizeof(b)); //TODO: Change to toyota CH_CMD_PARKING_STATUS_INFO - no such value
+	}
+
+	uint8_t reverse_state = (car_get_selector() == e_selector_r) ? 1 : 0;
+	uint8_t park_break  = car_get_park_break();
+	uint8_t near_lights = car_get_near_lights();
+	uint8_t tmp = reverse_state | (park_break << 1) | (near_lights << 2);
+	snd_canbox_msg(0x24, &tmp, sizeof(tmp)); //toyota CH_CMD_BASE_INFO same as VW
+
+	if (!park_is_on)
+		return;
+
+	uint8_t fbuf[] = { 0x00, 0x00, 0x00, 0x00 };
+	fbuf[0] = fmax[0] + 1 - scale(radar.fr, 0, 99, 0, fmax[0]);
+	fbuf[1] = fmax[1] + 1 - scale(radar.frm, 0, 99, 0, fmax[1]);
+	fbuf[2] = fmax[2] + 1 - scale(radar.flm, 0, 99, 0, fmax[2]);
+	fbuf[3] = fmax[3] + 1 - scale(radar.fl, 0, 99, 0, fmax[3]);
+	snd_canbox_msg(0x1D, fbuf, sizeof(fbuf)); //Changed to toyota CH_CMD_FRONT_RADAR_INFO
+
+	uint8_t rbuf[] = { 0x00, 0x00, 0x00, 0x00, 0xF7 };
+	rbuf[0] = rmax[0] + 1 - scale(radar.rl, 0, 99, 0, rmax[0]);
+	rbuf[1] = rmax[1] + 1 - scale(radar.rlm, 0, 99, 0, rmax[1]);
+	rbuf[2] = rmax[2] + 1 - scale(radar.rrm, 0, 99, 0, rmax[2]);
+	rbuf[3] = rmax[3] + 1 - scale(radar.rr, 0, 99, 0, rmax[3]);
+	snd_canbox_msg(0x1E, rbuf, sizeof(rbuf)); //changed to toyota CH_CMD_REAR_RADAR_INFO
+}
+void canbox_raise_toyota_wheel_process(uint8_t type, int16_t min, int16_t max)
+{
+	//Todo
+}
+
 void canbox_raise_vw_radar_process(uint8_t fmax[4], uint8_t rmax[4])
 {
 	struct radar_t radar;
@@ -420,7 +466,7 @@ void canbox_inc_volume(uint8_t val)
 {
 	(void)val;
 
-	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox()) || (e_cb_raise_toyota ==conf_get_canbox())) {
 
 		uint8_t buf[] = { 0x01, 0x01 };  
 		snd_canbox_msg(0x20, buf, sizeof(buf));
@@ -434,7 +480,7 @@ void canbox_dec_volume(uint8_t val)
 {
 	(void)val;
 
-	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox()) || (e_cb_raise_toyota ==conf_get_canbox())){
 
 		uint8_t buf[] = { 0x02, 0x01 }; //transformed to 13 in HU
 		snd_canbox_msg(0x20, buf, sizeof(buf));
@@ -454,7 +500,7 @@ void canbox_prev(void)
 		buf[1] = 0x00;
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
-	else if (e_cb_raise_vw_mqb == conf_get_canbox()) {
+	else if (e_cb_raise_vw_mqb == conf_get_canbox() || (e_cb_raise_toyota == conf_get_canbox())) {
 
 		uint8_t buf[] = { 0x04, 0x01 };
 		snd_canbox_msg(0x20, buf, sizeof(buf));
@@ -474,7 +520,7 @@ void canbox_next(void)
 		buf[1] = 0x00;
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
-	else if( e_cb_raise_vw_mqb == conf_get_canbox()) {
+	else if( e_cb_raise_vw_mqb == conf_get_canbox() || (e_cb_raise_toyota == conf_get_canbox())) {
 
 		uint8_t buf[] = { 0x03, 0x01 };
 		snd_canbox_msg(0x20, buf, sizeof(buf));
@@ -523,7 +569,17 @@ void canbox_mici(void)
 void canbox_pickup(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x07, 0x01 }; // PICK UP / HANG UP / CHANGE SRC
+		uint8_t buf[] = { 0x05, 0x01 }; // TEL
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		//const char msg[] = "\n\rPickup pressed\n\r";
+		//hw_usart_write(hw_usart_get(), (uint8_t *)msg, sizeof(msg));
+	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		uint8_t buf[] = { 0x09, 0x01 }; // PICK_UP
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -534,12 +590,21 @@ void canbox_pickup(void)
 void canbox_hangup(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x08, 0x01 }; // SPEECH
+		uint8_t buf[] = { 0x05, 0x01 }; // TEL
+		//uint8_t buf[] = { 0x08, 0x01 }; // SPEECH
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		uint8_t buf[] = { 0x0A, 0x01 }; // HANG_UP
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+
 }
 
 
@@ -551,6 +616,13 @@ void canbox_nav_enter(void)
 
 		buf[1] = 0x00;
 		snd_canbox_msg(0x20, buf, sizeof(buf));
+	} 
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		uint8_t buf[] = { 0x16, 0x01 }; // Enter - toggles play
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 
 }
@@ -558,7 +630,35 @@ void canbox_nav_enter(void)
 void canbox_nav_back(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		uint8_t buf[] = { 0x06, 0x01 }; // MUTE
+		uint8_t buf[] = { 0x07, 0x01 }; // Switches between apps
+		//uint8_t buf[] = { 0x08, 0x01 }; // SPEECH
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		uint8_t buf[] = { 0x15, 0x01 }; // BACK - Seems to shut down the app
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+
+}
+
+void canbox_nav_up(void)
+{
+	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
+	 	uint8_t buf[] = { 0x09, 0x01 }; //Resumes playing song (and stops it)
+	 	snd_canbox_msg(0x20, buf, sizeof(buf));
+
+	 	//buf[1] = 0x00;
+	 	//snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		//uint8_t buf[] = { 0x13, 0x01 }; // MENU_UP - prev song
+		uint8_t buf[] = { 0x83, 0x01 }; //SCROLL_KEY_CH_FLD_UP	= 0x83 Next song 
 		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		buf[1] = 0x00;
@@ -566,36 +666,43 @@ void canbox_nav_back(void)
 	}
 }
 
-void canbox_nav_up(void)
-{
-	// if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-	// 	uint8_t buf[] = { 0x0C, 0x01 };
-	// 	snd_canbox_msg(0x20, buf, sizeof(buf));
-
-	// 	buf[1] = 0x00;
-	// 	snd_canbox_msg(0x20, buf, sizeof(buf));
-	// }
-}
-
 void canbox_nav_down(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		// uint8_t buf[] = { 0x16, 0x01 };
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		//uint8_t buf[] = { 0x0A, 0x01 }; //Cycles beteween open apps (music apps?)
+		uint8_t buf[] = { 0x06, 0x01 }; // MUTE
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 
-		// buf[1] = 0x00;
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		//buf[1] = 0x00;
+		//snd_canbox_msg(0x20, buf, sizeof(buf));
+	} 
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		//uint8_t buf[] = { 0x14, 0x01 }; // MENU_DOWN - next song
+		uint8_t buf[] = { 0x84, 0x01 }; //SCROLL_KEY_CH_FLD_DOWN = 0x84 Prev song or start of song
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 
 void canbox_nav_left(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		// uint8_t buf[] = { 0x06, 0x01 };
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		//uint8_t buf[] = { 0x0B, 0x01 }; //Toggles Mute
+		uint8_t buf[] = { 0x07, 0x01 }; // Switches between apps
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		// buf[1] = 0x00;
 		// snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		//uint8_t buf[] = { 0x03, 0x01 }; //MENU_LEFT - Prev song or start of song
+		uint8_t buf[] = { 0x86, 0x01 }; //SCROLL_KEY_TUNE_TRACK_DOWN = 0x86 // Next song
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 
@@ -603,11 +710,20 @@ void canbox_nav_left(void)
 void canbox_nav_right(void)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_mqb == conf_get_canbox())) {
-		// uint8_t buf[] = { 0x06, 0x01 };
-		// snd_canbox_msg(0x20, buf, sizeof(buf));
+		uint8_t buf[] = { 0x07, 0x01 }; // Switches between apps
+		//uint8_t buf[] = { 0x0C, 0x01 }; //Does not seem to do anything
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 
 		// buf[1] = 0x00;
 		// snd_canbox_msg(0x20, buf, sizeof(buf));
+	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		//uint8_t buf[] = { 0x04, 0x01 }; // MENU_RIGHT  Next song
+		uint8_t buf[] = { 0x85, 0x01 }; //SCROLL_KEY_TUNE_TRACK_UP = 0x85 Prev song or start of song
+		snd_canbox_msg(0x20, buf, sizeof(buf));
+
+		buf[1] = 0x00;
+		snd_canbox_msg(0x20, buf, sizeof(buf));
 	}
 }
 
@@ -712,6 +828,9 @@ void canbox_process(void)
 		canbox_hiworld_vw_mqb_wheel_process();
 		canbox_hiworld_vw_mqb_door_process();
 	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		canbox_raise_vw_wheel_process(0x29, -380, 380);
+	}
 }
 
 void canbox_park_process(void)
@@ -737,6 +856,11 @@ void canbox_park_process(void)
 	else if (e_cb_hiworld_vw_mqb == conf_get_canbox()) {
 
 		canbox_hiworld_vw_mqb_radar_process();
+	}
+	else if (e_cb_raise_toyota == conf_get_canbox()){
+		uint8_t fmax[4] = { 4, 4, 4, 4 };
+		uint8_t rmax[4] = { 4, 4, 4, 4 };
+		canbox_raise_toyota_radar_process(fmax, rmax);
 	}
 }
 
