@@ -272,7 +272,30 @@ static void xc90_2008my_ms_ccm_handler(const uint8_t * msg, struct msg_desc_t * 
 
 
 
+static void xc90_2008my_ms_odo_handler(const uint8_t * msg, struct msg_desc_t * desc){
+	if (is_timeout(desc)) {
+		carstate.odometer = STATE_UNDEF;
+		return;
+	}
 
+	uint32_t odometer = 0;
+	odometer |= (uint32_t)msg[5] << 16; // Shift the 6th byte 16 bits to the left
+    odometer |= (uint32_t)msg[6] << 8;  // Shift the 7th byte 8 bits to the left
+    odometer |= (uint32_t)msg[7];       // Add the 8th byte
+    carstate.odometer = odometer;
+}
+
+static void xc90_2008my_ms_rpm_handler(const uint8_t * msg, struct msg_desc_t * desc){
+	if (is_timeout(desc)) {
+		carstate.taho = STATE_UNDEF;
+		return;
+	}
+
+	uint32_t rpm = 0;
+    rpm |= (uint32_t)msg[6] << 8;  // Shift the 7th byte 8 bits to the left
+    rpm |= (uint32_t)msg[7];       // Add the 8th byte
+    carstate.taho = rpm/8;
+}
 
 
 
@@ -285,7 +308,9 @@ struct msg_desc_t xc90_2008my_ms[] =
 	{ 0x2803008, 60, 0, 0, xc90_2008my_ms_lsm1_handler },
 	{ 0x3200428, 90, 0, 0, xc90_2008my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2008my_ms_acc_handler },
-	//{ 0x4200002, 300, 0, 0, xc90_2008my_ms_ccm_handler }, //-> CCM disabled for now
+	{ 0x4000002, 150, 0, 0, xc90_2008my_ms_odo_handler },
+	{ 0x2803008, 180, 0, 0, xc90_2008my_ms_rpm_handler },
+	{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, 
 };
 
 /*
