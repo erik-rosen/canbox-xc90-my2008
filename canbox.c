@@ -244,7 +244,30 @@ void canbox_raise_vw_vehicle_info(void)
 	//Raise VW protocol vehicle info structure: 
 	// 0x41, 0x02, engine_speed_high_byte, engine_speed_low_byte, speed_high_byte, speed_low_byte, 
 	// battery_voltage_high_byte, battery_voltage_low_byte, temp_high_byte, temp_low_byte, 
-	// odometer_high_byte, odometer_low_byte,  remaining_fuel
+	// odometer_high_byte, odometer_low_byte, remaining_fuel
+	/* Processing code:
+
+		Log.i(TAG, "receive vehicle base info ");
+		mService.cachePropValue(VehicleInterfaceProperties.VIM_ENGINE_SPEED_PROPERTY, String.valueOf(param[1] * 256 + param[2]), false);
+		mService.cachePropValue(VehicleInterfaceProperties.VIM_SPEEDO_METER_PROPERTY, String.format("%.1f", (param[3] * 256 + param[4]) * 0.01), false);
+		mService.cachePropValue(VehicleInterfaceProperties.VIM_BATTERY_VOLTAGE_PROPERTY, String.format("%.1f", (param[5] * 256 + param[6]) * 0.01), false);
+		// 补码显示（-50-77.5）
+		float temp = 0.0f;
+		if (ServiceHelper.getBit(param[7], 7) == 1)
+		{
+			temp = -ServiceHelper.MAKEWORD((~((param[8] - 1) & 0xFF) & 0xFF), (~(param[7] & 0xFF)) & 0xFF) * 0.1f;
+		}
+		else
+		{
+			temp = ServiceHelper.MAKEWORD(param[8], param[7]) * 0.1f;
+		}
+		temp = (float) Math.min(RZC_VolkswagenSeriesProtocol.EXTERN_HIGHEST_TEMP, Math.max(RZC_VolkswagenSeriesProtocol.EXTERN_LOWEST_TEMP, temp));
+		mService.cachePropValue(VehicleInterfaceProperties.VIM_EXTERIOR_TEMP_PROPERTY, String.format("%.1f", temp), false);
+		long odometer = param[9] * 65536 + param[10] * 256 + param[11];
+		mService.cachePropValue(VehicleInterfaceProperties.VIM_ODOMETER_PROPERTY, String.valueOf(odometer), false);
+		mService.cachePropValue(VehicleInterfaceProperties.VIM_RMNG_FUEL_LVL_PROPERTY, String.valueOf(param[12]), false);
+	
+	*/
 
 	snd_canbox_msg(0x41, buf, sizeof(buf));
 
@@ -268,6 +291,7 @@ void canbox_raise_vw_vehicle_info(void)
 	}
 }
 
+//Processed per: https://github.com/darkspr1te/Work/blob/7d99feea7de35b8fc7a89fdc3ba4b14249422f07/MctCoreServices/src/com/mct/carmodels/RZC_VolkswagenSeriesManager.java#L521
 void canbox_raise_vw_ac_process(void)
 {
 	uint8_t buf[5] = { 0x00, 0x00, 0x00, 0x00, 0x00 };

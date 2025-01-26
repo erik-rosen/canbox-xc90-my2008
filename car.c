@@ -25,8 +25,8 @@ typedef struct car_state_t
 	uint8_t acc;
 	uint8_t ign;
 	uint8_t engine;
-	uint32_t taho;
-	uint32_t speed;
+	uint16_t taho;
+	uint16_t speed;
 	//in percentages 0% : 100%
 	uint8_t illum;
 	uint8_t selector;

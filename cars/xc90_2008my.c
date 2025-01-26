@@ -292,10 +292,10 @@ static void xc90_2008my_ms_rpm_handler(const uint8_t * msg, struct msg_desc_t * 
 		carstate.taho = STATE_UNDEF;
 		return;
 	}
-	uint32_t rpm = 0;
+	uint16_t rpm = 0;
     rpm |= (uint32_t)msg[6] << 8;  // Shift the 6th byte 8 bits to the left
     rpm |= (uint32_t)msg[7];
-    rpm = rpm & 0x0FFF; //Only lowest 10 bits seems to encode rpm
+    rpm = rpm & 0x0FFF; //Only lowest 12 bits seems to encode rpm
     carstate.taho = rpm; 
 }
 
@@ -305,7 +305,7 @@ static void xc90_2008my_ms_vel_handler(const uint8_t * msg, struct msg_desc_t * 
 		return;
 	}
 
-	uint32_t speed = 0;
+	uint16_t speed = 0;
     speed |= (uint32_t)msg[5] << 8;  // Shift the 6th byte 8 bits to the left
     speed |= (uint32_t)msg[6]; // Add the 7th byte
     speed = speed & 0x03FF; //only the lowest 10 bits are used to denote speed 
@@ -346,14 +346,14 @@ struct msg_desc_t xc90_2008my_ms[] =
 	{ 0x3200428, 90, 0, 0, xc90_2008my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2008my_ms_acc_handler },
 	{ 0x4000002, 1000, 0, 0, xc90_2008my_ms_odo_handler }, //Confirmed working
-	{ 0x2803008, 180, 0, 0, xc90_2008my_ms_rpm_handler }, //CAN signal is correct, Not sure if the protocol is correctly 
-	{ 0x217FFC, 210, 0, 0, xc90_2008my_ms_vel_handler }, //CAN confirmed, UARt signal is not correctly interpreted by HU
+	{ 0x2803008, 1030, 0, 0, xc90_2008my_ms_rpm_handler }, //CAN signal is correct, Not sure if the protocol is correctly 
+	{ 0x217FFC, 1060, 0, 0, xc90_2008my_ms_vel_handler }, //CAN confirmed, UARt signal is not correctly interpreted by HU
 	{ 0x381526C, 240, 0, 0, xc90_2008my_ms_fuel_handler }, //Likely correct
 	//{ 0x3C01428, 1000, 0, 0, xc90_2008my_ms_temp_handler }, //TODO: confirm CAN scaling + uart
 	//{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, //TODO: confirm CAN scaling + uart
 };
 
-/*Todos:
+/*Todos (Reverse engineering CAN ids and message bytes):
 
 * Battery voltage
 * Seatbelt status
