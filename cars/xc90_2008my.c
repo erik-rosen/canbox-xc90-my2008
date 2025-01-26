@@ -56,8 +56,9 @@ static void xc90_2008my_ms_lsm1_handler(const uint8_t * msg, struct msg_desc_t *
 
 		return;
 	}
-
-	carstate.illum = scale(msg[2], 0, 0xff, 0, 100);
+	uint8_t night_illumination_on = ((msg[2] & 0xC) > 0); // Check if the 3rd or 4th least significant bits are high
+	
+	carstate.illum = night_illumination_on ? 100 : 0;
 }
 
 static void xc90_2008my_ms_lsm0_handler(const uint8_t * msg, struct msg_desc_t * desc)
@@ -318,7 +319,8 @@ static void xc90_2008my_ms_fuel_handler(const uint8_t * msg, struct msg_desc_t *
 		return;
 	}
 
-	uint8_t fuel_lvl = msg[6]; //I think the CANbus sends the state of two different level sensors - take the average of them
+	const uint8_t tank_capacity = 80; //80 Litres on the V8
+	uint8_t fuel_lvl = tank_capacity * msg[6] / 100; //6th byte encodes percentage full (most likely)
     carstate.fuel_lvl = fuel_lvl; 
 }
 
@@ -340,42 +342,24 @@ struct msg_desc_t xc90_2008my_ms[] =
 	{ 0x131726c, 25, 0, 0, xc90_2008my_ms_swm_handler },
 	{ 0x12173be, 45, 0, 0, xc90_2008my_ms_rem_handler },
 	{ 0x2510020, 80, 0, 0, xc90_2008my_ms_wheel_handler },
-	{ 0x2803008, 60, 0, 0, xc90_2008my_ms_lsm1_handler }, //TODO: check that illumination is working
+	{ 0x2803008, 60, 0, 0, xc90_2008my_ms_lsm1_handler }, 
 	{ 0x3200428, 90, 0, 0, xc90_2008my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2008my_ms_acc_handler },
 	{ 0x4000002, 1000, 0, 0, xc90_2008my_ms_odo_handler }, //Confirmed working
 	{ 0x2803008, 180, 0, 0, xc90_2008my_ms_rpm_handler }, //CAN signal is correct, Not sure if the protocol is correctly 
-	{ 0x217FFC, 210, 0, 0, xc90_2008my_ms_vel_handler }, //TODO: confirm CAN + UARt signal
-	//{ 0x381526C, 240, 0, 0, xc90_2008my_ms_fuel_handler }, //TODO: confirm CAN + uart
-	//{ 0x381526C, 1000, 0, 0, xc90_2008my_ms_temp_handler }, //TODO: confirm CAN scaling + uart
+	{ 0x217FFC, 210, 0, 0, xc90_2008my_ms_vel_handler }, //CAN confirmed, UARt signal is not correctly interpreted by HU
+	{ 0x381526C, 240, 0, 0, xc90_2008my_ms_fuel_handler }, //Likely correct
+	//{ 0x3C01428, 1000, 0, 0, xc90_2008my_ms_temp_handler }, //TODO: confirm CAN scaling + uart
 	//{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, //TODO: confirm CAN scaling + uart
 };
 
-/*
+/*Todos:
 
-14034a2x	Rx	d	8	00	5B	40	04	89	22	04	00	Length
-
-Folding mirror in and out, button in CCM bytes[4]
-
-89 rest position   00 5B 80 04 8F 00 04 00 --> Basic state
-
-D9 Fold up the mirror     00 5B 80 04 DF 00 04 00 -->Hide
-
-E9 Unfold mirror  00 5B 80 04 EF 00 04 00 --> Expand  
-
-info is likely the high part
-
-
-#define STEERING_WHEEL_MODULE 0x0131726C // CORRECT
-#define CEM 0x00217FFC // CORRECT
-#define AMBIENT_LIGHT 0x02803008 // CORRECT
-#define DEM 0x014034A2 // CORRECT
-#define GEARBOX 0x12173BE // CORRECT, could be parking sensor module instead of gearbox
-#define CENTRAL_LOCK 0x01601422 // Likely correct
-#define AEM 0x0141726C //tbd
-#define REM 0x00800401 //tbd
-#define RTI_DPAD 0x014034A2 //tbd
-#define CLIMATE_MODULE 0x00217FFC //tbd
-#define BRAKE_PEDAL 0x0381526C //tbd
+* Battery voltage
+* Belt status
+* Wiper fluid level
+* Parking brake status
+* Exterior temp
+* CCM integration
 
 */
