@@ -238,9 +238,13 @@ void canbox_raise_vw_vehicle_info(void)
 	uint8_t t9 = (odo >> 16) & 0xff;
 	uint8_t t10 = (odo >> 8) & 0xff;
 	uint8_t t11 = odo & 0xff;
-	uint8_t t12 = car_get_low_fuel_level();
+	uint8_t t12 = car_get_fuel_level();
 
 	uint8_t buf[13] = { 0x02, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12 };
+	//Raise VW protocol vehicle info structure: 
+	// 0x41, 0x02, engine_speed_high_byte, engine_speed_low_byte, speed_high_byte, speed_low_byte, 
+	// battery_voltage_high_byte, battery_voltage_low_byte, temp_high_byte, temp_low_byte, 
+	// odometer_high_byte, odometer_low_byte,  remaining_fuel
 
 	snd_canbox_msg(0x41, buf, sizeof(buf));
 

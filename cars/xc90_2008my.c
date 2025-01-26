@@ -1,6 +1,7 @@
 //mscan 2510020
 //hscan 1a2402a
 
+
 static void xc90_2008my_ms_wheel_handler(const uint8_t * msg, struct msg_desc_t * desc)  // working but reversed
 {
 	if (is_timeout(desc)) {
@@ -290,13 +291,47 @@ static void xc90_2008my_ms_rpm_handler(const uint8_t * msg, struct msg_desc_t * 
 		carstate.taho = STATE_UNDEF;
 		return;
 	}
-
 	uint32_t rpm = 0;
-    rpm |= (uint32_t)msg[6] << 8;  // Shift the 7th byte 8 bits to the left
-    rpm |= (uint32_t)msg[7];       // Add the 8th byte
-    carstate.taho = rpm/8;
+    rpm |= (uint32_t)msg[6] << 8;  // Shift the 6th byte 8 bits to the left
+    rpm |= (uint32_t)msg[7];
+    rpm = rpm & 0x0FFF; //Only lowest 10 bits seems to encode rpm
+    carstate.taho = rpm; 
 }
 
+static void xc90_2008my_ms_vel_handler(const uint8_t * msg, struct msg_desc_t * desc){
+	if (is_timeout(desc)) {
+		carstate.speed = STATE_UNDEF;
+		return;
+	}
+
+	uint32_t speed = 0;
+    speed |= (uint32_t)msg[5] << 8;  // Shift the 6th byte 8 bits to the left
+    speed |= (uint32_t)msg[6]; // Add the 7th byte
+    speed = speed & 0x03FF; //only the lowest 10 bits are used to denote speed 
+    speed = speed / 4;
+    carstate.speed = speed; 
+}
+
+static void xc90_2008my_ms_fuel_handler(const uint8_t * msg, struct msg_desc_t * desc){
+	if (is_timeout(desc)) {
+		carstate.fuel_lvl = STATE_UNDEF;
+		return;
+	}
+
+	uint8_t fuel_lvl = msg[6]; //I think the CANbus sends the state of two different level sensors - take the average of them
+    carstate.fuel_lvl = fuel_lvl; 
+}
+
+static void xc90_2008my_ms_temp_handler(const uint8_t * msg, struct msg_desc_t * desc){
+	if (is_timeout(desc)) {
+		carstate.temp = STATE_UNDEF;
+		return;
+	}
+	//I have not managed to correctly scale this.
+	uint32_t temp = 0;
+	temp = (msg[6] * 0.75 - 48)+0.5f;
+    carstate.temp = temp; 
+}
 
 
 struct msg_desc_t xc90_2008my_ms[] =
@@ -305,12 +340,15 @@ struct msg_desc_t xc90_2008my_ms[] =
 	{ 0x131726c, 25, 0, 0, xc90_2008my_ms_swm_handler },
 	{ 0x12173be, 45, 0, 0, xc90_2008my_ms_rem_handler },
 	{ 0x2510020, 80, 0, 0, xc90_2008my_ms_wheel_handler },
-	{ 0x2803008, 60, 0, 0, xc90_2008my_ms_lsm1_handler },
+	{ 0x2803008, 60, 0, 0, xc90_2008my_ms_lsm1_handler }, //TODO: check that illumination is working
 	{ 0x3200428, 90, 0, 0, xc90_2008my_ms_gear_handler },
 	{ 0x2006428, 120, 0, 0, xc90_2008my_ms_acc_handler },
-	{ 0x4000002, 150, 0, 0, xc90_2008my_ms_odo_handler },
-	{ 0x2803008, 180, 0, 0, xc90_2008my_ms_rpm_handler },
-	{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, 
+	{ 0x4000002, 1000, 0, 0, xc90_2008my_ms_odo_handler }, //Confirmed working
+	{ 0x2803008, 180, 0, 0, xc90_2008my_ms_rpm_handler }, //CAN signal is correct, Not sure if the protocol is correctly 
+	{ 0x217FFC, 210, 0, 0, xc90_2008my_ms_vel_handler }, //TODO: confirm CAN + UARt signal
+	//{ 0x381526C, 240, 0, 0, xc90_2008my_ms_fuel_handler }, //TODO: confirm CAN + uart
+	//{ 0x381526C, 1000, 0, 0, xc90_2008my_ms_temp_handler }, //TODO: confirm CAN scaling + uart
+	//{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, //TODO: confirm CAN scaling + uart
 };
 
 /*
