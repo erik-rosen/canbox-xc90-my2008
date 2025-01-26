@@ -356,7 +356,7 @@ struct msg_desc_t xc90_2008my_ms[] =
 /*Todos:
 
 * Battery voltage
-* Belt status
+* Seatbelt status
 * Wiper fluid level
 * Parking brake status
 * Exterior temp
