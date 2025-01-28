@@ -292,7 +292,7 @@ static void in_process(struct can_t * can, uint8_t ticks, struct msg_desc_t * ms
 					desc->in_handler(msg.data, desc);
 				}
 
-				break;
+				//break;
 			}
 		}
 	}

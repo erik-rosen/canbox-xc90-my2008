@@ -241,8 +241,15 @@ void canbox_raise_vw_vehicle_info(void)
 	uint8_t t12 = car_get_fuel_level();
 
 	uint8_t buf[13] = { 0x02, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12 };
+	// t1 = 0x01, t2 = 0xFF produces RPM = 511 in HU
+	// t3 = 0x01, t4 = 0xFF produces speed = 5 km/h in HU
+	// t7 = 0x00, t8 = 0x00 (0x00 = 0) produces temp = 0C in HU
+	// t7 = 0x00, t8 = 0x1F (0x01f = 31) produces temp = 4C in HU
+	// t7 = 0x01, t8 = 0xFF (0x1FF = 511) produces temp = 52C in hu
+ 
+
 	//Raise VW protocol vehicle info structure: 
-	// 0x41, 0x02, engine_speed_high_byte, engine_speed_low_byte, speed_high_byte, speed_low_byte, 
+	// 0x2E, 0x41, length, 0x02, engine_speed_high_byte, engine_speed_low_byte, speed_high_byte, speed_low_byte, 
 	// battery_voltage_high_byte, battery_voltage_low_byte, temp_high_byte, temp_low_byte, 
 	// odometer_high_byte, odometer_low_byte, remaining_fuel
 	/* Processing code:
