@@ -192,10 +192,7 @@ void canbox_raise_vw_door_process(void)
 
 	uint8_t state = 0;
 
-	if ((conf_get_car() == e_car_skoda_fabia) || (conf_get_car() == e_car_q3_2015) || (conf_get_car() == e_car_toyota_premio_26x)) {
-
-		if (ds_belt)
-			state |= 0x80;
+	if ((conf_get_car() == e_car_skoda_fabia) || (conf_get_car() == e_car_q3_2015) || (conf_get_car() == e_car_toyota_premio_26x) || (conf_get_car() == e_car_xc90_2008my)) {
 		if (low_washer)
 			state |= 0x40;
 		if (park_break)
@@ -204,6 +201,8 @@ void canbox_raise_vw_door_process(void)
 	else if (bonnet)
 		state |= 0x20;
 
+	if (ds_belt)
+		state |= 0x80;
 	if (tailgate)
 		state |= 0x10;
 	if (rr_door)

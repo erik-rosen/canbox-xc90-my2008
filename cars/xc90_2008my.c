@@ -337,6 +337,13 @@ static void xc90_2008my_ms_temp_handler(const uint8_t * msg, struct msg_desc_t *
     carstate.temp = temp; 
 }
 
+static void xc90_2008my_ms_ds_belt_handler(const uint8_t * msg, struct msg_desc_t * desc){
+    carstate.ds_belt = (msg[4] & 0x08) >> 3;  
+}
+
+static void xc90_2008my_ms_park_brake_handler(const uint8_t * msg, struct msg_desc_t * desc){
+    carstate.park_break = ~msg[1] & 0x01;  
+}
 
 struct msg_desc_t xc90_2008my_ms[] =
 {
@@ -351,6 +358,8 @@ struct msg_desc_t xc90_2008my_ms[] =
 	{ 0x2803008, 180, 0, 0, xc90_2008my_ms_rpm_handler }, //Confirmed working
 	{ 0x217FFC, 150, 0, 0, xc90_2008my_ms_vel_handler }, //Confirmed working
 	{ 0x381526C, 240, 0, 0, xc90_2008my_ms_fuel_handler }, //Likely correct
+	{ 0x2202262, 270, 0, 0, xc90_2008my_ms_ds_belt_handler }, //Could also only be passenger warning light
+	{ 0x3A04004, 300, 0, 0, xc90_2008my_ms_park_brake_handler }, //Not supported by VW protocol :(
 	{ 0x3C01428, 1000, 0, 0, xc90_2008my_ms_temp_handler }, //TODO: confirm CAN scaling + uart
 	//{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, //TODO: confirm CAN scaling + uart
 };
@@ -359,8 +368,27 @@ struct msg_desc_t xc90_2008my_ms[] =
 
 * Battery voltage
 * Seatbelt status
+Driver seat:
+8:01:25.212 -> ID: 0x1A0600A Byte[6] Bit[1] changed: 1
+18:01:25.510 -> ID: 0x1A0600A Byte[6] Bit[0] changed: 1
+18:01:25.510 -> ID: 0x1A0600A Byte[6] Bit[1] changed: 0
+18:01:25.577 -> ID: 0x2202262 Byte[4] Bit[3] changed: 0
+Passenger:
+Warn:
+08:35:53.465 -> ID: 0x2006428 Byte[3] Bit[5] changed: 1
+08:35:53.531 -> ID: 0x2202262 Byte[4] Bit[3] changed: 1
+Release:
+08:35:56.219 -> ID: 0x2006428 Byte[3] Bit[5] changed: 0
+08:35:56.256 -> ID: 0x2202262 Byte[4] Bit[3] changed: 0
+
 * Wiper fluid level
+
 * Parking brake status
+Release:
+08:34:29.690 -> ID: 0x3A04004 Byte[1] Bit[0] changed: 0
+Engaged:
+08:34:57.692 -> ID: 0x3A04004 Byte[1] Bit[0] changed: 1
+
 * Exterior temp
 * CCM integration
 

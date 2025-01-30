@@ -546,7 +546,7 @@ int main(void)
 
 			if (ms_can_stop_counter > 10) {
 
-				conf_write();
+				//conf_write();
 
 				hw_sleep();
 
@@ -554,7 +554,7 @@ int main(void)
 
 				hw_setup();
 
-				conf_read();
+				//conf_read();
 
 				debug_on = 0;
 
