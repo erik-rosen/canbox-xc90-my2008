@@ -24,8 +24,11 @@ static void xc90_2008my_ms_gear_handler(const uint8_t * msg, struct msg_desc_t *
 	if (is_timeout(desc)) {
 
 		carstate.selector = STATE_UNDEF;
+		carstate.brake = STATE_UNDEF;
 		return;
 	}
+
+	carstate.brake = (msg[4] & 0x04) ? 1 : 0;
 
 	switch ((msg[6] >> 4) & 0x07) {
 
@@ -53,9 +56,11 @@ static void xc90_2008my_ms_lsm1_handler(const uint8_t * msg, struct msg_desc_t *
 	if (is_timeout(desc)) {
 
 		carstate.illum = STATE_UNDEF;
+		carstate.high_beam = STATE_UNDEF;
 
 		return;
 	}
+	carstate.high_beam = (msg[1] & 0x10) ? 1 : 0;
 	uint8_t night_illumination_on = ((msg[2] & 0xC) > 0); // Check if the 3rd or 4th least significant bits are high
 	
 	carstate.illum = night_illumination_on ? 100 : 0;
@@ -86,8 +91,12 @@ static void xc90_2008my_ms_rem_handler(const uint8_t * msg, struct msg_desc_t * 
 		carstate.tailgate = STATE_UNDEF;
 
 		carstate.radar.state = e_radar_off;
+		carstate.lock_state = STATE_UNDEF;
 		return;
 	}
+
+	//byte 7 bits 0-1: 1 locked, 2 unlocked, 3 locked and armed (fob, after about 26 s)
+	carstate.lock_state = msg[7] & 0x03;
 
 	carstate.fl_door = (msg[5] & 0x02) ? 1 : 0;
 	carstate.fr_door = (msg[5] & 0x04) ? 1 : 0;
@@ -254,25 +263,121 @@ static void xc90_2008my_ms_acc_handler(const uint8_t * msg, struct msg_desc_t * 
 		carstate.ign = 0;
 }
 
-static void xc90_2008my_ms_ccm_handler(const uint8_t * msg, struct msg_desc_t * desc){
+/* Climate, decoded 2026-10-15 with GVRET (see xc90_2008my_lowspeed.dbc).
+ * The temperature setpoints and seat heat are not on the low-speed bus. */
+
+//blower step 1..7 values in 0x4200002 byte 7; the value ramps between steps
+static const uint8_t xc90_blower_steps[] = { 0x00, 0x11, 0x20, 0x2f, 0x40, 0x54, 0x6c, 0x86 };
+
+static uint8_t xc90_blower_step(uint8_t v)
+{
+	uint8_t step = 0;
+	for (uint8_t i = 1; i < sizeof(xc90_blower_steps); i++)
+		if (v >= (xc90_blower_steps[i - 1] + xc90_blower_steps[i] + 1) / 2)
+			step = i;
+	return step;
+}
+
+static uint8_t xc90_ac_off = STATE_UNDEF;
+
+static void xc90_2008my_ms_blower_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
 	if (is_timeout(desc)) {
-		carstate.temp = STATE_UNDEF;
 		car_air_state.fanspeed = STATE_UNDEF;
 		car_air_state.recycling = STATE_UNDEF;
 		car_air_state.powerfull = STATE_UNDEF;
 		car_air_state.ac = STATE_UNDEF;
 		return;
 	}
-	uint8_t fanspeed= ((msg[7] & 0xf0) >> 4);
 
-	carstate.temp = (msg[6] * 0.75 - 48)+0.5f; // cabin temperature
-	car_air_state.fanspeed = (fanspeed > 0x07? 0x7 : fanspeed) * 2 + 2;
-	car_air_state.powerfull = fanspeed > 0x07 ? 1 : 0;
-	car_air_state.recycling = (msg[1] == 0x64) ? 1 : 0;
-	car_air_state.ac = msg[1] != 0x00 && msg[1] != 0x64 ? 1 : 0;
+	uint8_t step = xc90_blower_step(msg[7]);
+
+	//canbox_raise_vw_ac_process() scales 0..15 down to 0..7
+	car_air_state.fanspeed = (step * 15 + 6) / 7;
+	//0x21 byte 0 bit 7 is climate power on the FYT decoder
+	car_air_state.powerfull = step ? 1 : 0;
+	//recirculation flap in %: 100 = manual recirculation
+	car_air_state.recycling = (msg[0] >= 0x64) ? 1 : 0;
+	if (xc90_ac_off != STATE_UNDEF)
+		car_air_state.ac = (step && !xc90_ac_off) ? 1 : 0;
 }
 
+static void xc90_2008my_ms_ac_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
+	if (is_timeout(desc)) {
+		xc90_ac_off = STATE_UNDEF;
+		car_air_state.ac = STATE_UNDEF;
+		return;
+	}
 
+	//byte 0: 0x03 AC on, 0x1b AC off
+	xc90_ac_off = (msg[0] & 0x18) ? 1 : 0;
+	car_air_state.ac = (car_air_state.powerfull == 1 && !xc90_ac_off) ? 1 : 0;
+}
+
+static void xc90_2008my_ms_heaters_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
+	if (is_timeout(desc)) {
+		car_air_state.rear = STATE_UNDEF;
+		return;
+	}
+
+	//rear window heater
+	car_air_state.rear = (msg[6] & 0x80) ? 1 : 0;
+}
+
+/* Body signals for the side channel, decoded 2026-10-15/16 */
+
+static void xc90_2008my_ms_turn_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
+	//only sent while the indicators run, so a timeout means off
+	if (is_timeout(desc)) {
+		carstate.turn_left = 0;
+		carstate.turn_right = 0;
+		return;
+	}
+
+	//lamp state, toggles with the flash; hazards set both.
+	//In the dark phase (neither bit) keep the last side; it ends on timeout.
+	if (msg[7] & 0x06) {
+		carstate.turn_left = (msg[7] & 0x02) ? 1 : 0;
+		carstate.turn_right = (msg[7] & 0x04) ? 1 : 0;
+	}
+}
+
+static void xc90_2008my_ms_ddm_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
+	if (is_timeout(desc)) {
+		carstate.drv_window_open = STATE_UNDEF;
+		carstate.rear_win_lock = STATE_UNDEF;
+		return;
+	}
+
+	//driver door module: byte 4 bits 0-1, 1 closed, 2 open
+	carstate.drv_window_open = ((msg[4] & 0x03) == 0x02) ? 1 : 0;
+	carstate.rear_win_lock = (msg[2] & 0x80) ? 1 : 0;
+}
+
+static void xc90_2008my_ms_sunroof_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
+	if (is_timeout(desc)) {
+		carstate.sunroof = STATE_UNDEF;
+		return;
+	}
+
+	//0 closed, 1 moving, 2 open
+	carstate.sunroof = msg[2] > 2 ? 2 : msg[2];
+}
+
+static void xc90_2008my_ms_fog_handler(const uint8_t * msg, struct msg_desc_t * desc)
+{
+	if (is_timeout(desc)) {
+		carstate.rear_fog = STATE_UNDEF;
+		return;
+	}
+
+	carstate.rear_fog = (msg[2] & 0x20) ? 1 : 0;
+}
 
 static void xc90_2008my_ms_odo_handler(const uint8_t * msg, struct msg_desc_t * desc){
 	if (is_timeout(desc)) {
@@ -361,7 +466,13 @@ struct msg_desc_t xc90_2008my_ms[] =
 	{ 0x2202262, 270, 0, 0, xc90_2008my_ms_ds_belt_handler }, //Confirmed working
 	{ 0x3A04004, 300, 0, 0, xc90_2008my_ms_park_brake_handler }, //Confirmed working
 	{ 0x3C01428, 1000, 0, 0, xc90_2008my_ms_temp_handler }, //TODO: confirm CAN scaling + uart
-	//{ 0xE01008, 300, 0, 0, xc90_2008my_ms_ccm_handler }, //TODO: confirm CAN scaling + uart
+	{ 0x4200002, 1000, 0, 0, xc90_2008my_ms_blower_handler }, //Confirmed 2026-10-15
+	{ 0x0E01008, 100, 0, 0, xc90_2008my_ms_ac_handler }, //Confirmed 2026-10-15
+	{ 0x0C00402, 100, 0, 0, xc90_2008my_ms_heaters_handler }, //Confirmed 2026-10-15
+	{ 0x0A10408, 500, 0, 0, xc90_2008my_ms_turn_handler }, //Confirmed 2026-10-15
+	{ 0x14034A2, 100, 0, 0, xc90_2008my_ms_ddm_handler }, //Confirmed 2026-10-15
+	{ 0x1E0162A, 100, 0, 0, xc90_2008my_ms_sunroof_handler }, //Confirmed 2026-10-15
+	{ 0x2616CFC, 150, 0, 0, xc90_2008my_ms_fog_handler }, //Confirmed 2026-10-15
 };
 
 /*Todos (Reverse engineering CAN ids and message bytes):
@@ -369,6 +480,6 @@ struct msg_desc_t xc90_2008my_ms[] =
 * Battery voltage
 * Wiper fluid level
 * Exterior temp
-* CCM integration
+* Temperature setpoints and seat heat (not on the low-speed bus; check high-speed CAN)
 
 */

@@ -54,6 +54,19 @@ typedef struct car_state_t
 	uint32_t temp;
 	uint8_t fuel_lvl;
 	uint8_t low_fuel_lvl;
+
+	//body state for the head unit side channel (Raise 0x41/0x11)
+	//0 undefined, 1 locked, 2 unlocked, 3 locked and armed
+	uint8_t lock_state;
+	uint8_t turn_left;
+	uint8_t turn_right;
+	uint8_t drv_window_open;
+	//0 closed, 1 moving, 2 open
+	uint8_t sunroof;
+	uint8_t high_beam;
+	uint8_t rear_fog;
+	uint8_t rear_win_lock;
+	uint8_t brake;
 } car_state_t;
 
 static car_state_t carstate =
@@ -89,6 +102,16 @@ static car_state_t carstate =
 	.temp = 0,
 	.fuel_lvl = 0,
 	.low_fuel_lvl = STATE_UNDEF,
+
+	.lock_state = STATE_UNDEF,
+	.turn_left = STATE_UNDEF,
+	.turn_right = STATE_UNDEF,
+	.drv_window_open = STATE_UNDEF,
+	.sunroof = STATE_UNDEF,
+	.high_beam = STATE_UNDEF,
+	.rear_fog = STATE_UNDEF,
+	.rear_win_lock = STATE_UNDEF,
+	.brake = STATE_UNDEF,
 };
 
 typedef struct car_air_state_t
@@ -535,6 +558,78 @@ uint8_t car_get_ds_belt(void)
 		return 0;
 
 	return carstate.ds_belt;
+}
+
+uint8_t car_get_lock_state(void)
+{
+	if (carstate.lock_state == STATE_UNDEF)
+		return 0;
+
+	return carstate.lock_state;
+}
+
+uint8_t car_get_turn_left(void)
+{
+	if (carstate.turn_left == STATE_UNDEF)
+		return 0;
+
+	return carstate.turn_left;
+}
+
+uint8_t car_get_turn_right(void)
+{
+	if (carstate.turn_right == STATE_UNDEF)
+		return 0;
+
+	return carstate.turn_right;
+}
+
+uint8_t car_get_drv_window_open(void)
+{
+	if (carstate.drv_window_open == STATE_UNDEF)
+		return 0;
+
+	return carstate.drv_window_open;
+}
+
+uint8_t car_get_sunroof(void)
+{
+	if (carstate.sunroof == STATE_UNDEF)
+		return 0;
+
+	return carstate.sunroof;
+}
+
+uint8_t car_get_high_beam(void)
+{
+	if (carstate.high_beam == STATE_UNDEF)
+		return 0;
+
+	return carstate.high_beam;
+}
+
+uint8_t car_get_rear_fog(void)
+{
+	if (carstate.rear_fog == STATE_UNDEF)
+		return 0;
+
+	return carstate.rear_fog;
+}
+
+uint8_t car_get_rear_win_lock(void)
+{
+	if (carstate.rear_win_lock == STATE_UNDEF)
+		return 0;
+
+	return carstate.rear_win_lock;
+}
+
+uint8_t car_get_brake(void)
+{
+	if (carstate.brake == STATE_UNDEF)
+		return 0;
+
+	return carstate.brake;
 }
 
 uint16_t car_get_taho(void)

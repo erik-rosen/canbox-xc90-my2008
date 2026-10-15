@@ -321,6 +321,10 @@ void canbox_raise_vw_ac_process(void)
 	uint8_t l_seat = car_get_air_l_seat();
 	uint8_t r_seat = car_get_air_r_seat();
 
+	//FYT decoder (com.syu.ms, Raise VW PQ "else" branch) reads byte 0 as:
+	//b7 power, b6 AC, b5 recirculation, b4 AUTO, b3 auto airflow, b2 dual,
+	//b1 front defrost (MAX_FRONT), b0 rear window heater. So "powerfull" is
+	//climate power, "recycling_max" lands on AUTO and "ac_max" on front defrost.
 	if (powerfull)
 		buf[0] |= 0x80;
 	if (ac)
@@ -348,13 +352,25 @@ void canbox_raise_vw_ac_process(void)
 	uint8_t speed = scale(fanspeed, 0x00, 0x0F, 0x00, 0x07);
 	buf[1] |= speed & 0x07;
 
-	if ((l_temp % 10) == 0x05)
-		buf[2] |= 0x01;
-	buf[2] |= ((int)l_temp) << 1;
+	//0 = unknown: send 0xff, which the head unit's climate pop-up shows as "NO"
+	//rather than "LO" (XC90: the setpoints are not on the low-speed bus)
+	if (l_temp == 0) {
+		buf[2] = 0xff;
+	}
+	else {
+		if ((l_temp % 10) == 0x05)
+			buf[2] |= 0x01;
+		buf[2] |= ((int)l_temp) << 1;
+	}
 
-	if ((r_temp % 10) == 0x05)
-		buf[3] |= 0x01;
-	buf[3] |= ((int)r_temp) << 1;
+	if (r_temp == 0) {
+		buf[3] = 0xff;
+	}
+	else {
+		if ((r_temp % 10) == 0x05)
+			buf[3] |= 0x01;
+		buf[3] |= ((int)r_temp) << 1;
+	}
 
 	if (aqs)
 		buf[4] |= 0x80;
@@ -832,6 +848,46 @@ static void canbox_raise_cmd_process(uint8_t ch)
 		rx_state = RX_WAIT_START;
 }
 
+/*
+ * Side channel: body state in the Raise VW PQ car-info frames 0x41/0x11 and
+ * 0x41/0x12. The FYT VW PQ decoder exposes them unchanged as canbus codes
+ * 113-117, 140-143 (U_CARINF_D41_D11_*, U_CARINF_D41_D12_D1_B7), which an app
+ * on the head unit (Bil) reads. The head unit has no turn-signal or lock input
+ * of its own for this profile.
+ *
+ * 0x11 D1: b7-6 lock (1 locked, 2 unlocked, 3 armed), b5 left indicator,
+ *          b4 right indicator, b3 driver window open, b2-0 sunroof (0 closed, 1 moving, 2 open)
+ * 0x11 D2: b7 main beam, b6 rear fog, b5 rear-window lock
+ * 0x12 D1: b7 brake pedal
+ */
+void canbox_raise_vw_carinfo_process(void)
+{
+	uint8_t d1 = 0;
+	uint8_t d2 = 0;
+
+	d1 |= (car_get_lock_state() & 0x03) << 6;
+	if (car_get_turn_left())
+		d1 |= 0x20;
+	if (car_get_turn_right())
+		d1 |= 0x10;
+	if (car_get_drv_window_open())
+		d1 |= 0x08;
+	d1 |= car_get_sunroof() & 0x07;
+
+	if (car_get_high_beam())
+		d2 |= 0x80;
+	if (car_get_rear_fog())
+		d2 |= 0x40;
+	if (car_get_rear_win_lock())
+		d2 |= 0x20;
+
+	uint8_t buf11[] = { 0x11, d1, d2 };
+	snd_canbox_msg(0x41, buf11, sizeof(buf11));
+
+	uint8_t buf12[] = { 0x12, car_get_brake() ? 0x80 : 0x00, 0x00 };
+	snd_canbox_msg(0x41, buf12, sizeof(buf12));
+}
+
 void canbox_cmd_process(uint8_t ch)
 {
 	if ((e_cb_raise_vw_pq == conf_get_canbox()) || (e_cb_raise_vw_pq == conf_get_canbox()))
@@ -846,6 +902,8 @@ void canbox_process(void)
 		canbox_raise_vw_door_process();
 		canbox_raise_vw_ac_process();
 		canbox_raise_vw_vehicle_info();
+		if (conf_get_car() == e_car_xc90_2008my)
+			canbox_raise_vw_carinfo_process();
 	}
 	else if (e_cb_raise_vw_mqb == conf_get_canbox()) {
 

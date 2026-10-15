@@ -104,6 +104,16 @@ uint8_t car_get_park_break(void);
 uint8_t car_get_low_washer(void);
 uint8_t car_get_ds_belt(void);
 
+uint8_t car_get_lock_state(void);
+uint8_t car_get_turn_left(void);
+uint8_t car_get_turn_right(void);
+uint8_t car_get_drv_window_open(void);
+uint8_t car_get_sunroof(void);
+uint8_t car_get_high_beam(void);
+uint8_t car_get_rear_fog(void);
+uint8_t car_get_rear_win_lock(void);
+uint8_t car_get_brake(void);
+
 uint32_t car_get_odometer(void);
 uint32_t car_get_voltage(void);
 uint32_t car_get_temp(void);
