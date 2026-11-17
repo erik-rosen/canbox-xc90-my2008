@@ -1,5 +1,9 @@
 # FYT canbus protocol atlas
 
+**Just want to look?** Download [fyt-canbus-atlas.zip](https://github.com/erik-rosen/canbox-xc90-my2008/raw/main/fyt-canbus-atlas/fyt-canbus-atlas.zip)
+(1.1 MB), unzip it and open `fyt-canbus-atlas.html` in a browser. It works offline, with the data
+built in. The zip also holds the write-up, the CSV and the JSON below.
+
 Which canbus profile on an FYT head unit carries the most signals, and what each protocol decodes
 from the canbox's UART frames. Built 2026-10-14 from the DUDU7 (Android 13, UIS7870), FYT
 `com.syu.canbus` build 2126013012. Interactive page: `page/index.html`, which needs the
@@ -13,7 +17,7 @@ the 0x41/0x11-12 side channel (see `../XC90-MY2008-SETUP.md`).
 | `fyt-canbus-profiles.csv` | Every settings entry (5,106): canbox → cars for → model → config, decoder, parser, rank, signal counts |
 | `fyt-canbus-spec.json` | Every decoded signal of all 652 protocols: code, name, category, frame, byte expression, branch |
 | `scripts/` | The pipeline (below) |
-| `page/index.html` | The interactive page (needs `protocols.json` next to it) |
+| `page/index.html` | The interactive page's source (needs `protocols.json` next to it); `fyt-canbus-atlas.zip` holds a self-contained copy |
 
 Not in the repo, by design: the APKs and the decompiled FYT sources (vendor code).
 
