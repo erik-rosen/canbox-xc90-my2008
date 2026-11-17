@@ -3,7 +3,7 @@
 How this fork is built, flashed and extended for Erik's 2008 XC90 with a DUDUAUTO DUDU7 head
 unit (FYT platform, profile Raise VW PQ). Signals are in `xc90_2008my_lowspeed.dbc`; the head-unit
 side (the Bil app, FYT codes, cameras) is in the openclaw repo, `projects/car-link/README.md`.
-Upstream's own notes for the XC90 are in `volvoxc90.md`.
+Upstream's own notes for the XC90 are in `volvoxc90.md`. Why Raise VW PQ, and what every FYT canbus profile decodes: `fyt-canbus-atlas/`.
 
 ## Build (macOS, Apple silicon)
 
