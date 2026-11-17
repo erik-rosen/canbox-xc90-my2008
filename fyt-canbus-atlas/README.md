@@ -1,6 +1,6 @@
 # FYT canbus protocol atlas
 
-**Just want to look?** Download [fyt-canbus-atlas.zip](https://github.com/erik-rosen/canbox-xc90-my2008/raw/main/fyt-canbus-atlas/fyt-canbus-atlas.zip)
+**Just want to look?** Download [fyt-canbus-atlas.zip](https://raw.githubusercontent.com/erik-rosen/canbox-xc90-my2008/main/fyt-canbus-atlas/fyt-canbus-atlas.zip)
 (1.1 MB), unzip it and open `fyt-canbus-atlas.html` in a browser. It works offline, with the data
 built in. The zip also holds the write-up, the CSV and the JSON below.
 
